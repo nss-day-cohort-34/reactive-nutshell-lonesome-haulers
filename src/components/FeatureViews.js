@@ -13,7 +13,7 @@ export default class ApplicationViews extends Component {
       <React.Fragment>
 
         <Route
-          exact path="/home" render={props => {
+          exact path="/" render={props => {
             return <Home />
             // Remove null and return the component which will show news articles
           }}

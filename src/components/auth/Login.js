@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
+import UserManager from "../../modules/UserManager"
 class Login extends Component {
 
     // Set initial state
@@ -15,17 +16,26 @@ class Login extends Component {
         this.setState(stateToChange)
     }
 
+
+
     handleLogin = (event) => {
         event.preventDefault()
-        sessionStorage.setItem(
-            "credentials",
-            JSON.stringify({
-                username: this.state.username,
-                password: this.state.password
-            })
-        )
-        this.props.history.push("/home");
-
+        UserManager.getUsernamePassword(this.state.username, this.state.password).then(user => {
+            if (user.length === 0) {
+                window.alert("Not a valid username or password")
+                document.querySelector("#username").value = ""
+                document.querySelector("#password").value = ""
+            } else {
+                sessionStorage.setItem(
+                    "credentials",
+                    JSON.stringify({
+                        username: this.state.username,
+                        password: this.state.password
+                    })
+                )
+                this.props.history.push("/home");
+            }
+        })
     }
 
     render() {
@@ -46,7 +56,7 @@ class Login extends Component {
                             placeholder="Password"
                             required="" />
                     </div>
-                    <button type="submit">
+                    <button className="btn" type="submit">
                         Submit
             </button>
                     <Link className="nav-link" to="/register">Don't have an account?</Link>

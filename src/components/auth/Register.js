@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Link } from "react-router-dom"
+import UserManager from "../../modules/UserManager"
 class Register extends Component {
 
     // Set initial state
@@ -17,15 +17,24 @@ class Register extends Component {
 
     handleRegister = (event) => {
         event.preventDefault()
-        sessionStorage.setItem(
-            "credentials",
-            JSON.stringify({
-                username: this.state.username,
-                password: this.state.password
-            })
-        )
-        this.props.history.push("/home");
-
+        UserManager.getUsername(this.state.username).then(user => {
+            if (user.length !== 0) {
+                window.alert("Account already exists")
+                document.querySelector("#username").value = ""
+                document.querySelector("#password").value = ""
+            } else {
+                UserManager.post(this.state).then(() => {
+                    sessionStorage.setItem(
+                        "credentials",
+                        JSON.stringify({
+                            username: this.state.username,
+                            password: this.state.password
+                        })
+                    )
+                    this.props.history.push("/home");
+                })
+            }
+        })
     }
 
     handleCancel = (event) => {
@@ -51,10 +60,10 @@ class Register extends Component {
                             placeholder="Password"
                             required="" />
                     </div>
-                    <button type="submit">
+                    <button className="btn" type="submit">
                         Submit
             </button>
-                    <button type="cancel" onClick={this.handleCancel}>
+                    <button className="btn" type="cancel" onClick={this.handleCancel}>
                         Cancel
             </button>
                 </fieldset>

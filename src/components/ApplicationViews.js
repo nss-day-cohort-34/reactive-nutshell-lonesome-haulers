@@ -2,6 +2,7 @@ import { Route, Redirect } from "react-router-dom";
 import React, { Component } from "react";
 import Login from "./auth/Login"
 import Register from "./auth/Register"
+import Dashboard from "./Dashboard"
 
 export default class ApplicationViews extends Component {
 
@@ -11,7 +12,7 @@ export default class ApplicationViews extends Component {
 
         <Route
           exact path="/" render={props => {
-            return <Login />
+            return <Login {...props}/>
             // Remove null and return the component which will show news articles
           }}
         />
@@ -24,8 +25,8 @@ export default class ApplicationViews extends Component {
         />
 
         <Route
-          path="/messages" render={props => {
-            return null
+          path="/home" render={props => {
+            return <Dashboard />
             // Remove null and return the component which will show the messages
           }}
         />

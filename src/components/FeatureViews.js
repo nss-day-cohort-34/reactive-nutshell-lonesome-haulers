@@ -1,7 +1,5 @@
 import { Route, Redirect } from "react-router-dom";
 import React, { Component } from "react";
-import Login from "./auth/Login"
-import Register from "./auth/Register"
 
 export default class ApplicationViews extends Component {
 
@@ -11,14 +9,14 @@ export default class ApplicationViews extends Component {
 
         <Route
           exact path="/" render={props => {
-            return <Login />
+            return null
             // Remove null and return the component which will show news articles
           }}
         />
 
         <Route
-          path="/register" render={props => {
-            return <Register {...props}/>
+          path="/friends" render={props => {
+            return null
             // Remove null and return the component which will show list of friends
           }}
         />

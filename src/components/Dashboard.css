@@ -1,0 +1,20 @@
+.masterContainer {
+    display: flex;
+    justify-content: space-evenly;
+    min-height: 787px;
+}
+
+.leftContainer {
+    flex-basis: 60%;
+    border: 1px solid red;
+}
+
+.rightContainer {
+    flex-basis: 40%;
+    border: 1px solid blue;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+}

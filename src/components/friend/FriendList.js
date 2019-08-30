@@ -1,10 +1,10 @@
 import React, { Component } from "react"
-class EventList extends Component {
+class FriendList extends Component {
     render() {
         return (
-            <h1>event</h1>
+            <h1>friend</h1>
         )
     }
 }
 
-export default EventList;
+export default FriendList;

@@ -26,8 +26,26 @@ class Login extends Component {
                 document.querySelector("#username").value = ""
                 document.querySelector("#password").value = ""
             } else {
+                // sessionStorage.setItem("username", this.state.username)
+                // sessionStorage.setItem("password", this.state.password)
+
+                // UserManager.getAll().then(users => {
+                //     users.forEach(user => {
+                //         if (user.username === this.state.username) {
+                //             sessionStorage.setItem(
+                //                 "credentials",
+                //                 JSON.stringify({
+                //                     username: this.state.username,
+                //                     password: this.state.password,
+                //                     userId: user.id
+                //                 }) 
+                //             )      
+                //         }
+                //     });
+                // })
+
                 sessionStorage.setItem(
-                    "credentials",
+                        "credentials",
                     JSON.stringify({
                         username: this.state.username,
                         password: this.state.password

@@ -3,6 +3,7 @@ import MessageCard from "./MessageCard"
 import MessageManager from "../../modules/MessageManager"
 
 
+
 class MessageList extends Component {
 
     state = {
@@ -31,6 +32,9 @@ class MessageList extends Component {
         stateToChange[event.target.id] = event.target.value
         this.setState(stateToChange)
     }
+
+    
+    
 
 
     constructNewMessage = event => {

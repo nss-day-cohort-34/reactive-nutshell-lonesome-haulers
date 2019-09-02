@@ -6,8 +6,18 @@ import "./Dashboard.css"
 
 class Dashboard extends Component {
     state = {
-        messages: [],
-        message: "",
+        idea: 0
+    }
+
+    componentDidMount() {
+        this.setState({
+            idea: this.state.idea + 1
+        })
+    }
+
+    tryThis = () => {
+        console.log(this.state)
+        this.componentDidMount()
     }
 
     logout = () => {
@@ -15,6 +25,7 @@ class Dashboard extends Component {
         this.props.history.push("/")
     }
     render() {
+        console.log("render")
         const username = (JSON.parse(sessionStorage.getItem("credentials")))
         return (
             <>
@@ -30,7 +41,9 @@ class Dashboard extends Component {
                     </div>
                     <div className="rightContainer">
                         <div className="messageListContainer">
-                            <MessageList {...this.props} />
+                            <MessageList
+                            tryThis={this.tryThis}
+                             {...this.props} />
                         </div>
                     </div>
                 </div>

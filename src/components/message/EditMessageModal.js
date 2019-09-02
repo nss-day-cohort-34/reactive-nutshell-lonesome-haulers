@@ -85,6 +85,7 @@ class EditMessageModal extends Component {
                         style={customStyles}
                         contentLabel="Modal"
                     >
+                        <h2>Edit Message</h2>
                         <input
                             type="text"
                             required

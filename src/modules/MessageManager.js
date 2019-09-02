@@ -5,7 +5,6 @@ export default {
         return fetch(`${remoteURL}/messages/${id}`).then(result => result.json())
       },
       getAll() {
-          console.log("getall")
         return fetch(`${remoteURL}/messages?_expand=user`).then(result => result.json())
       },
       delete(id) {

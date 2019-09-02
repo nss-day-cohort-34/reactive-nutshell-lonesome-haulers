@@ -31,4 +31,13 @@ export default {
         body: JSON.stringify(editedTask)
       }).then(data => data.json());
     },
+    saveEditedTask(taskObj) {
+        return fetch(`${remoteURL}/tasks/${taskObj.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(taskObj)
+        }).then(data => data.json());
+    }
 }

@@ -24,6 +24,8 @@ class TaskEditForm extends Component {
         id: this.props.match.params.taskId,
         task: this.state.taskName,
         date: this.state.date,
+        userId: this.state.userId,
+        isCompleted: false,
       };
 
       TaskManager.update(editedTask)
@@ -37,6 +39,8 @@ class TaskEditForm extends Component {
             taskName: task.task,
             date: task.date,
             loadingStatus: false,
+            userId: task.userId,
+            isCompleted: false,
           });
       });
     }

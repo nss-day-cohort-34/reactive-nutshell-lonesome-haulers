@@ -7,7 +7,6 @@ class TaskForm extends Component {
         task: "",
         date: "",
         isCompleted: false,
-        userId,
         loadingStatus: false,
     };
     
@@ -23,18 +22,18 @@ class TaskForm extends Component {
    
 
     constructNewTask = evt => {
-        
+        const username = (JSON.parse(sessionStorage.getItem("credentials")))
         evt.preventDefault();
         if (this.state.taskName === "" || this.state.date === "") {
             window.alert("Please input a task name and due date");
         } else {
             this.setState({ loadingStatus: true });
-            const userId = parseInt(sessionStorage.getItem("userId"))
+            // const userId = parseInt(sessionStorage.getItem("userId"))
             const task = {
                 task: this.state.taskName,
                 date: this.state.date,
                 isCompleted: this.state.isCompleted,
-                userId: userId
+                userId: parseInt(username.id)
             };
 
             // Create the task and redirect user to task list

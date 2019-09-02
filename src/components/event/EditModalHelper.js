@@ -36,6 +36,7 @@ class EditModalHelper extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <>
             <ReactModal
@@ -47,6 +48,7 @@ class EditModalHelper extends Component {
                 <EditEventModal
                     closeModal={this.closeModal}
                     openModal={this.openModal}
+                    {...this.props}
                 />>
     
     

@@ -19,6 +19,10 @@ class EventList extends Component {
           })
       }
 
+      didMountFunction = () => {
+          this.componentDidMount()
+      }
+
       deleteEvent = id => {
         EventManager.delete(id)
           .then(() => {
@@ -34,7 +38,9 @@ class EventList extends Component {
     render() {
         return (
             <>
-                <ModalHelper />
+                <ModalHelper 
+                    didMountFunction={this.didMountFunction}
+                />
                 <div id="eventsContainer">
                     {this.state.events.map(event =>
                         <EventCard
@@ -42,6 +48,7 @@ class EventList extends Component {
                             event={event}
                             deleteEvent={this.deleteEvent}
                             {...this.props}
+                            didMountFunction={this.didMountFunction}
                         />
                     )}
                 </div>

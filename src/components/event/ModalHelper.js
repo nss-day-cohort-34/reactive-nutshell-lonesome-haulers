@@ -47,6 +47,7 @@ class ModalHelper extends Component {
                 <AddEventModal
                     closeModal={this.closeModal}
                     openModal={this.openModal}
+                    didMountFunction={this.props.didMountFunction}
                 />>
     
     

@@ -16,7 +16,6 @@ class AddEventModal extends Component {
         eventName: "",
         location: "",
         date: "",
-        // userId: "",
         loadingStatus: false
     }
 
@@ -28,19 +27,22 @@ class AddEventModal extends Component {
 
     createNewEvent = event => {
         event.preventDefault()
+        const username = JSON.parse(sessionStorage.getItem("credentials"))
         // if (this.state.eventName === "" || this.state.location === "" || this.state.date === "") {
         //     window.alert("Please fill out all fields")
         // } else {
             this.setState({ loadingStatus: true })
-            // const currentUser = EventFilterFunction.foundUser()
             const newEvent = {
                 eventName: this.state.eventName,
                 location: this.state.location,
-                date: this.state.date
-                // userId: currentUserId
+                date: this.state.date,
+                userId: username.id
             }
             EventManager.post(newEvent)
                 .then(() => this.props.closeModal())
+                .then(() => {
+                    this.props.didMountFunction()
+                })
         // }
     }
 

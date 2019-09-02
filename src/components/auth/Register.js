@@ -5,7 +5,8 @@ class Register extends Component {
     // Set initial state
     state = {
         username: "",
-        password: ""
+        password: "",
+        id: 0
     }
 
     // Update state whenever an input field is edited
@@ -18,29 +19,19 @@ class Register extends Component {
     handleRegister = (event) => {
         event.preventDefault()
         UserManager.getUsername(this.state.username).then(user => {
+            this.setState({id: user[0].id})
             if (user.length !== 0) {
                 window.alert("Account already exists")
                 document.querySelector("#username").value = ""
                 document.querySelector("#password").value = ""
             } else {
-                // UserManager.post(this.state).then(() => {
-                //     sessionStorage.setItem("username", this.state.username)
-                //     sessionStorage.setItem("password", this.state.password)
-                //     UserManager.getAll().then(users => {
-                //         users.forEach(user => {
-                //             if (user.username === this.state.username) {
-                //                 sessionStorage.setItem("userId", user.id)
-                //             }
-                //         });
-                //     })
-                    
-                // })
 
                 sessionStorage.setItem(
                     "credentials",
                 JSON.stringify({
                     username: this.state.username,
-                    password: this.state.password
+                    password: this.state.password,
+                    id: this.state.id
                 })
             )
                 this.props.history.push("/");

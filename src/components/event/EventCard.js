@@ -17,7 +17,7 @@ class EventCard extends Component {
           <p>Location: {this.props.event.location}</p>
           <p>Date: {this.props.event.date}</p>
           <p>Created by {this.props.event.user.username}</p>
-          <EditModalHelper />
+          <EditModalHelper {...this.props} />
           {/* <button type="button"
             onClick={ () => { this.startModal() }}>Edit</button> */}
           <button type="button" onClick={() => this.props.deleteEvent(this.props.event.id)}>Delete</button>

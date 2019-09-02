@@ -8,7 +8,7 @@ class EditEventModal extends Component {
         eventName: "",
         location: "",
         date: "",
-        // userId: "",
+        id: 0,
         loadingStatus: true
     }
 
@@ -19,6 +19,7 @@ class EditEventModal extends Component {
     };
 
     updateExistingEvent = event => {
+        const username = JSON.parse(sessionStorage.getItem("credentials"))
         event.preventDefault()
         // if (this.state.eventName === "" || this.state.location === "" || this.state.date === "") {
         //     window.alert("Please fill out all fields")
@@ -28,38 +29,45 @@ class EditEventModal extends Component {
             const editedEvent = {
                 eventName: this.state.eventName,
                 location: this.state.location,
-                date: this.state.date
-                // id: this.props.match.params.eventId
-                // userId: JSON.parse(sessionStorage.getItem("userId"))
+                date: this.state.date,
+                id: parseInt(this.state.id),
+                userId: username.id
             }
             EventManager.update(editedEvent)
-                .then(() => this.props.closeModal())
+                .then(() => {
+                    this.props.closeModal()
+                    this.props.didMountFunction()
+                })
+
         // }
     }
 
     componentDidMount() {
-        // NEED TO CHANGE THIS - WE DON'T HAVE PARAMS IN A MODAL
-        EventManager.get(this.props.match.params.eventId)
+        EventManager.get(this.props.event.id)
         .then(event => {
             this.setState({
               eventName: event.eventName,
+              location: event.location,
+              date: event.date,
+              id: event.id,
               loadingStatus: false,
             });
         });
       }
 
     render() {
+        console.log(this.props)
         return (
             <>
                 <h1>Edit Event</h1>
                 <label htmlFor="">Event Name</label>
-                <input type="text" id="eventName" onChange={this.handleFieldChange}></input>
+                <input type="text" id="eventName" onChange={this.handleFieldChange} value={this.state.eventName}></input>
                 <p></p>
                 <label htmlFor="">Event Location</label>
-                <input type="text" id="location" onChange={this.handleFieldChange}></input>
+                <input type="text" id="location" onChange={this.handleFieldChange} value={this.state.location}></input>
                 <p></p>
                 <label htmlFor="">Event Name</label>
-                <input type="date" id="date" onChange={this.handleFieldChange}></input>
+                <input type="date" id="date" onChange={this.handleFieldChange} value={this.state.date}></input>
                 <button onClick={this.updateExistingEvent}>Save</button>
             </>
         )

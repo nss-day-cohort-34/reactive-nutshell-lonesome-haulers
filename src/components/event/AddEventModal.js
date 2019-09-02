@@ -27,10 +27,14 @@ class AddEventModal extends Component {
 
     createNewEvent = event => {
         event.preventDefault()
+        const now = new Date()
+        const day = now.getDate()
+        const month = ("0" + (now.getMonth() + 1)).slice(-2)
+        const today = `${now.getFullYear()}-${month}-${day}`
         const username = JSON.parse(sessionStorage.getItem("credentials"))
-        // if (this.state.eventName === "" || this.state.location === "" || this.state.date === "") {
-        //     window.alert("Please fill out all fields")
-        // } else {
+        if (this.state.eventName === "" || this.state.location === "" || this.state.date === "") {
+            window.alert("Please fill out all fields")
+        } else {
             this.setState({ loadingStatus: true })
             const newEvent = {
                 eventName: this.state.eventName,
@@ -43,7 +47,7 @@ class AddEventModal extends Component {
                 .then(() => {
                     this.props.didMountFunction()
                 })
-        // }
+        }
     }
 
     render() {

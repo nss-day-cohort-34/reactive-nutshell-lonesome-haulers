@@ -5,6 +5,7 @@ export default {
         return fetch(`${remoteURL}/messages/${id}`).then(result => result.json())
       },
       getAll() {
+          console.log("getall")
         return fetch(`${remoteURL}/messages?_expand=user`).then(result => result.json())
       },
       delete(id) {
@@ -14,13 +15,13 @@ export default {
         .then(result => result.json())
       },
       post(newMessage) {
-        return fetch(`${remoteURL}/messages`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newMessage)
-        }).then(data => data.json())
+          return fetch(`${remoteURL}/messages`, {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newMessage)
+            }).then(data => data.json())
     },
     update(editedMessage) {
       return fetch(`${remoteURL}/messages/${editedMessage.id}`, {

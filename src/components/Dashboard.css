@@ -18,3 +18,9 @@
     display: flex;
     justify-content: space-between;
 }
+
+.messageListContainer {
+    height: 700px;
+    overflow: scroll;
+}
+

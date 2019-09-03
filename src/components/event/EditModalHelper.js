@@ -3,16 +3,16 @@ import ReactModal from 'react-modal'
 import EditEventModal from "./EditEventModal";
 
 
-// const customStyles = {
-//     content: {
-//         top: '50%',
-//         left: '50%',
-//         right: 'auto',
-//         bottom: 'auto',
-//         marginRight: '-50%',
-//         transform: 'translate(-50%, -50%)'
-//     }
-// };
+const customStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)'
+    }
+};
 
 ReactModal.setAppElement('#root')
 class EditModalHelper extends Component {
@@ -40,7 +40,7 @@ class EditModalHelper extends Component {
         return (
             <>
             <ReactModal
-                // style={customStyles}
+                style={customStyles}
                 isOpen={this.state.modalIsOpen}
                 onRequestClose={this.closeModal}
                 contentLabel="Event Modal"
@@ -49,7 +49,7 @@ class EditModalHelper extends Component {
                     closeModal={this.closeModal}
                     openModal={this.openModal}
                     {...this.props}
-                />>
+                />
     
     
         </ReactModal>

@@ -21,9 +21,9 @@ class EditEventModal extends Component {
     updateExistingEvent = event => {
         const username = JSON.parse(sessionStorage.getItem("credentials"))
         event.preventDefault()
-        // if (this.state.eventName === "" || this.state.location === "" || this.state.date === "") {
-        //     window.alert("Please fill out all fields")
-        // } else {
+        if (this.state.eventName === "" || this.state.location === "" || this.state.date === "") {
+            window.alert("Please fill out all fields")
+        } else {
             this.setState({ loadingStatus: true })
             // const currentUser = EventFilterFunction.foundUser()
             const editedEvent = {
@@ -39,7 +39,7 @@ class EditEventModal extends Component {
                     this.props.didMountFunction()
                 })
 
-        // }
+        }
     }
 
     componentDidMount() {

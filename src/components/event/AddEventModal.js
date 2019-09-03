@@ -1,14 +1,5 @@
 import React, { Component } from "react"
 import EventManager from '../../modules/EventManager'
-import UserManager from '../../modules/UserManager'
-
-// const currentUserId = UserManager.getAll().then(users => {
-//     users.forEach(user => {
-//         if (user.username === sessionStorage.getItem("username")) {
-//             return user.id
-//         }
-//     });
-// })
 
 class AddEventModal extends Component {
 
@@ -28,11 +19,17 @@ class AddEventModal extends Component {
     createNewEvent = event => {
         event.preventDefault()
         const now = new Date()
-        const day = now.getDate()
+        let day = now.getDate()
+        if (day < 10) {
+            day = ("0" + day)
+        }
         const month = ("0" + (now.getMonth() + 1)).slice(-2)
         const today = `${now.getFullYear()}-${month}-${day}`
         const username = JSON.parse(sessionStorage.getItem("credentials"))
-        if (this.state.eventName === "" || this.state.location === "" || this.state.date === "") {
+        console.log(day)
+        console.log(this.state.date)
+        console.log(day)
+        if (this.state.eventName === "" || this.state.location === "" || this.state.date === "" || this.state.date < today) {
             window.alert("Please fill out all fields")
         } else {
             this.setState({ loadingStatus: true })

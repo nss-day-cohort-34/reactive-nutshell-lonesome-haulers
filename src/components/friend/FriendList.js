@@ -21,34 +21,30 @@ ReactModal.setAppElement('#root')
 class FriendList extends Component {
 
     state = {
-        friends: [],
         userId: 0,
         search: "",
         users: []
     }
 
 
-    componentDidMount() {
+    updateFriendList = () => {
         const username = (JSON.parse(sessionStorage.getItem("credentials")))
-        FriendManager.getAll()
-            .then(friends => {
-                this.setState({
-                    friends: friends,
-                    userId: username.id,
-                    search: "",
-                    modalIsOpen: false
-                });
-            });
+        this.setState({
+            userId: username.id,
+            search: "",
+            modalIsOpen: false
+        });
         UserManager.getAll()
             .then(users => {
                 this.setState({
                     users: users,
                 });
             })
+            this.props.updateFriends()
     }
 
-    updateFriendList = () => {
-        this.componentDidMount()
+    componentDidMount() {
+        this.updateFriendList()
     }
 
 
@@ -79,7 +75,7 @@ class FriendList extends Component {
     deleteFriend = id => {
         FriendManager.delete(id)
             .then(() => {
-                this.componentDidMount()
+                this.updateFriendList()
             })
     }
 
@@ -89,8 +85,7 @@ class FriendList extends Component {
     }
 
     render() {
-        console.log("render friends")
-        const friendships = this.state.friends.filter(friend => friend.userId === this.state.userId || friend.otherFriendId === this.state.userId)
+        const friendships = this.props.friends.filter(friend => friend.userId === this.state.userId || friend.otherFriendId === this.state.userId)
         return (
             <>
                 <ReactModal
@@ -113,7 +108,7 @@ class FriendList extends Component {
                             <AddFriendModal
                                 key={friend.id}
                                 friend={friend}
-                                friends={this.state.friends}
+                                friends={this.props.friends}
                                 updateFriendList={this.updateFriendList}
                                 {...this.props} />
                         )}

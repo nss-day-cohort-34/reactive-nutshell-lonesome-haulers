@@ -17,7 +17,7 @@ class AddFriendModal extends Component {
             FriendManager.post(friend)
                 .then(() => {
                     this.props.updateFriendList()
-                    document.querySelector("#search").value = ""
+                    // document.querySelector("#search").value = ""
                 })
     };
 

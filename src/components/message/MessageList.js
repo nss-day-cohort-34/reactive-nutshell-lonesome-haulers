@@ -17,15 +17,17 @@ class MessageList extends Component {
         messageContainer.scrollTop = messageContainer.scrollHeight
     }
 
-    componentDidMount() {
+    updateDom = () => {
         MessageManager.getAll().then(messages => {
             this.setState({messages: messages})
             this.scrollToBottom()
         })
     }
-    updateDom = () => {
-        this.componentDidMount()
+
+    componentDidMount() {
+        this.updateDom()
     }
+    
 
     handleFieldChange = event => {
         const stateToChange = {}
@@ -51,8 +53,11 @@ class MessageList extends Component {
 
             MessageManager.post(message)
                 .then(() => {
-                this.componentDidMount()
-                document.querySelector("#message").value = ""})
+                this.updateDom()
+                document.querySelector("#message").value = ""
+                this.setState({
+                    message: ""
+                })})
         }
     };
     render() {

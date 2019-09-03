@@ -3,29 +3,34 @@ import MessageList from './message/MessageList';
 import FeatureViews from './FeatureViews';
 import NavBar from './nav/NavBar';
 import "./Dashboard.css"
+import FriendManager from "../modules/FriendManager"
 
 class Dashboard extends Component {
     state = {
-        idea: 0
+        friends:[]
+    }
+
+    
+
+    updateFriends = () => {
+        FriendManager.getAll()
+            .then(friends => {
+                this.setState({
+                    friends: friends,
+                })
+            })
     }
 
     componentDidMount() {
-        this.setState({
-            idea: this.state.idea + 1
-        })
+        this.updateFriends()
     }
 
-    tryThis = () => {
-        console.log(this.state)
-        this.componentDidMount()
-    }
 
     logout = () => {
         sessionStorage.clear()
         this.props.history.push("/")
     }
     render() {
-        console.log("render")
         const username = (JSON.parse(sessionStorage.getItem("credentials")))
         return (
             <>
@@ -37,13 +42,17 @@ class Dashboard extends Component {
                             <button className="btn" onClick={this.logout}>Logout</button>
                         </div>
                         <NavBar />
-                        <FeatureViews />
+                        <FeatureViews
+                        updateFriends={this.updateFriends}
+                        friends={this.state.friends}
+                        {...this.props} />
                     </div>
                     <div className="rightContainer">
                         <div className="messageListContainer">
                             <MessageList
-                            tryThis={this.tryThis}
-                             {...this.props} />
+                                updateFriends={this.updateFriends}
+                                friends={this.state.friends}
+                                {...this.props} />
                         </div>
                     </div>
                 </div>

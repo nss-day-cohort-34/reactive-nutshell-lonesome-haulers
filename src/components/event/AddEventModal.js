@@ -25,10 +25,7 @@ class AddEventModal extends Component {
         }
         const month = ("0" + (now.getMonth() + 1)).slice(-2)
         const today = `${now.getFullYear()}-${month}-${day}`
-        const username = JSON.parse(sessionStorage.getItem("credentials"))
-        console.log(day)
-        console.log(this.state.date)
-        console.log(day)
+        const currentUser = JSON.parse(sessionStorage.getItem("credentials"))
         if (this.state.eventName === "" || this.state.location === "" || this.state.date === "" || this.state.date < today) {
             window.alert("Please fill out all fields")
         } else {
@@ -37,7 +34,7 @@ class AddEventModal extends Component {
                 eventName: this.state.eventName,
                 location: this.state.location,
                 date: this.state.date,
-                userId: username.id
+                userId: currentUser.id
             }
             EventManager.post(newEvent)
                 .then(() => this.props.closeModal())

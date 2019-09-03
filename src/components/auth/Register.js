@@ -30,7 +30,7 @@ class Register extends Component {
                 JSON.stringify({
                     username: this.state.username,
                     password: this.state.password,
-                    id: this.object.id
+                    id: object.id
                 })
             )
                 this.props.history.push("/");

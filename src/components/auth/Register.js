@@ -24,7 +24,7 @@ class Register extends Component {
                 document.querySelector("#username").value = ""
                 document.querySelector("#password").value = ""
             } else {
-                UserManager.post(this.state).then((object) => {
+            UserManager.post(this.state).then((object) => {
                 sessionStorage.setItem(
                     "credentials",
                 JSON.stringify({

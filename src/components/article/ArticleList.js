@@ -6,42 +6,25 @@ import AddArticleModal from './AddArticleModal'
 
 class ArticleList extends Component {
     //define what this component needs to render
-    state = {
-        articles: [],
-    }
 
 componentDidMount(){
     this.didMountFunction()
 }
 
 didMountFunction = () => {
-    console.log("ARTICLE LIST: ComponentDidMount");
-    //getAll from ArticleManager and hang on to that data; put it in state
-    ArticleManager.getAll()
-    .then((articles) => {
-        const sortedArticles = articles.sort((a, b) => (a.timestamp < b.timestamp) ? 1 : -1)
-        this.setState({
-            articles: sortedArticles
-        })
-    })
+    this.props.updateArticles()
 }
 
 deleteArticle = id => {
     ArticleManager.delete(id)
     .then(() => {
-      ArticleManager.getAll()
-      .then((newArticles) => {
-        const sortedNewArticles = newArticles.sort((a, b) => (a.timestamp < b.timestamp) ? 1 : -1)
-        this.setState({
-            articles: sortedNewArticles
-        })
-      })
+        this.didMountFunction()
     })
   }
   
 render(){
 
-    console.log("ARTICLE LIST: Render");
+    console.log(this.props.articles);
 
     return(
     <React.Fragment>
@@ -56,7 +39,7 @@ render(){
         </button>
         </section>
         <div className="container-cards">
-      {this.state.articles.map(article =>
+      {this.props.articles.map(article =>
         
         <ArticleCard
             key={article.id}

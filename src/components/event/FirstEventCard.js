@@ -10,6 +10,7 @@ class FirstEventCard extends Component {
     // }
 
     render() {
+        console.log(this.props)
         const currentUser = JSON.parse(sessionStorage.getItem("credentials"))
         if (this.props.event.user.username === currentUser.username) {
             return (

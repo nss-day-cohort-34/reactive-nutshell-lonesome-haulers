@@ -6,8 +6,7 @@ class AddEventModal extends Component {
     state = {
         eventName: "",
         location: "",
-        date: "",
-        loadingStatus: false
+        date: ""
     }
 
     handleFieldChange = event => {
@@ -29,7 +28,6 @@ class AddEventModal extends Component {
         if (this.state.eventName === "" || this.state.location === "" || this.state.date === "" || this.state.date < today) {
             window.alert("Please fill out all fields")
         } else {
-            this.setState({ loadingStatus: true })
             const newEvent = {
                 eventName: this.state.eventName,
                 location: this.state.location,

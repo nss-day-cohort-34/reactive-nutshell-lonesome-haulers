@@ -6,7 +6,7 @@ class Register extends Component {
     state = {
         username: "",
         password: "",
-        id:0
+        id: 0
     }
 
     // Update state whenever an input field is edited
@@ -35,10 +35,10 @@ class Register extends Component {
                         })
                     )
                     this.props.history.push("/");
-                })
-            }
-        })
-    }
+            })
+        }
+    })
+}
 
     handleCancel = (event) => {
         event.preventDefault()

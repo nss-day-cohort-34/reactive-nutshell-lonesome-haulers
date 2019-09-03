@@ -1,0 +1,4 @@
+#eventsContainer {
+    height: 600px;
+    overflow: scroll;
+}

@@ -3,8 +3,29 @@ import MessageList from './message/MessageList';
 import FeatureViews from './FeatureViews';
 import NavBar from './nav/NavBar';
 import "./Dashboard.css"
+import FriendManager from "../modules/FriendManager"
 
 class Dashboard extends Component {
+    state = {
+        friends:[]
+    }
+
+    
+
+    updateFriends = () => {
+        FriendManager.getAll()
+            .then(friends => {
+                this.setState({
+                    friends: friends,
+                })
+            })
+    }
+
+    componentDidMount() {
+        this.updateFriends()
+    }
+
+
     logout = () => {
         sessionStorage.clear()
         this.props.history.push("/")
@@ -16,15 +37,23 @@ class Dashboard extends Component {
                 <div className="masterContainer">
                     <div className="leftContainer">
                         <div className="headerContainer">
-                        <h2>NutShell</h2>
-                        <h3>Welcome {username.username}</h3>
-                        <button className="btn" onClick={this.logout}>Logout</button>
+                            <h2>NutShell</h2>
+                            <h3>Welcome {username.username}</h3>
+                            <button className="btn" onClick={this.logout}>Logout</button>
                         </div>
                         <NavBar />
-                        <FeatureViews />
+                        <FeatureViews
+                        updateFriends={this.updateFriends}
+                        friends={this.state.friends}
+                        {...this.props} />
                     </div>
                     <div className="rightContainer">
-                        <MessageList />
+                        <div className="messageListContainer">
+                            <MessageList
+                                updateFriends={this.updateFriends}
+                                friends={this.state.friends}
+                                {...this.props} />
+                        </div>
                     </div>
                 </div>
             </>

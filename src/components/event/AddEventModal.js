@@ -26,7 +26,7 @@ class AddEventModal extends Component {
         const today = `${now.getFullYear()}-${month}-${day}`
         const currentUser = JSON.parse(sessionStorage.getItem("credentials"))
         if (this.state.eventName === "" || this.state.location === "" || this.state.date === "" || this.state.date < today) {
-            window.alert("Please fill out all fields")
+            window.alert("Please fill out all fields with a date that has not passed")
         } else {
             const newEvent = {
                 eventName: this.state.eventName,

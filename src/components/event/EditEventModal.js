@@ -19,10 +19,17 @@ class EditEventModal extends Component {
     };
 
     updateExistingEvent = event => {
-        const username = JSON.parse(sessionStorage.getItem("credentials"))
         event.preventDefault()
-        if (this.state.eventName === "" || this.state.location === "" || this.state.date === "") {
-            window.alert("Please fill out all fields")
+        const now = new Date()
+        let day = now.getDate()
+        if (day < 10) {
+            day = ("0" + day)
+        }
+        const month = ("0" + (now.getMonth() + 1)).slice(-2)
+        const today = `${now.getFullYear()}-${month}-${day}`
+        const currentUser = JSON.parse(sessionStorage.getItem("credentials"))
+        if (this.state.eventName === "" || this.state.location === "" || this.state.date === "" || this.state.date < today) {
+            window.alert("Please fill out all fields with a date that has not passed")
         } else {
             this.setState({ loadingStatus: true })
             // const currentUser = EventFilterFunction.foundUser()
@@ -31,7 +38,7 @@ class EditEventModal extends Component {
                 location: this.state.location,
                 date: this.state.date,
                 id: parseInt(this.state.id),
-                userId: username.id
+                userId: currentUser.id
             }
             EventManager.update(editedEvent)
                 .then(() => {

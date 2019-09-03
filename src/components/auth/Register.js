@@ -5,7 +5,8 @@ class Register extends Component {
     // Set initial state
     state = {
         username: "",
-        password: ""
+        password: "",
+        id: 0
     }
 
     // Update state whenever an input field is edited
@@ -23,18 +24,19 @@ class Register extends Component {
                 document.querySelector("#username").value = ""
                 document.querySelector("#password").value = ""
             } else {
-                UserManager.post(this.state).then(() => {
-                    sessionStorage.setItem(
-                        "credentials",
-                        JSON.stringify({
-                            username: this.state.username,
-                            password: this.state.password
-                        })
-                    )
-                    this.props.history.push("/");
+            UserManager.post(this.state).then((object) => {
+                sessionStorage.setItem(
+                    "credentials",
+                JSON.stringify({
+                    username: this.state.username,
+                    password: this.state.password,
+                    id: this.object.id
                 })
-            }
-        })
+            )
+                this.props.history.push("/");
+            })
+        }
+    })
     }
 
     handleCancel = (event) => {

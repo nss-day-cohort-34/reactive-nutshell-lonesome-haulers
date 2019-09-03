@@ -22,14 +22,14 @@ class Login extends Component {
     handleLogin = (event) => {
         event.preventDefault()
         UserManager.getUsernamePassword(this.state.username, this.state.password).then(user => {
-            this.setState({id: user[0].id})
             if (user.length === 0) {
                 window.alert("Not a valid username or password")
                 document.querySelector("#username").value = ""
                 document.querySelector("#password").value = ""
             } else {
+                this.setState({id: user[0].id})
                 sessionStorage.setItem(
-                    "credentials",
+                        "credentials",
                     JSON.stringify({
                         username: this.state.username,
                         password: this.state.password,

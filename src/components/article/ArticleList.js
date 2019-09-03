@@ -19,8 +19,9 @@ didMountFunction = () => {
     //getAll from ArticleManager and hang on to that data; put it in state
     ArticleManager.getAll()
     .then((articles) => {
+        const sortedArticles = articles.sort((a, b) => (a.timestamp < b.timestamp) ? 1 : -1)
         this.setState({
-            articles: articles
+            articles: sortedArticles
         })
     })
 }
@@ -30,8 +31,9 @@ deleteArticle = id => {
     .then(() => {
       ArticleManager.getAll()
       .then((newArticles) => {
+        const sortedNewArticles = newArticles.sort((a, b) => (a.timestamp < b.timestamp) ? 1 : -1)
         this.setState({
-            articles: newArticles
+            articles: sortedNewArticles
         })
       })
     })

@@ -113,7 +113,7 @@ class AddArticleModal extends Component {
                 </fieldset>
             </form>
         </ReactModal>
-            <h1>articles</h1>
+            <h1>Articles</h1>
             <button onClick={this.openModal}>Add New Article</button>
             </>
         )

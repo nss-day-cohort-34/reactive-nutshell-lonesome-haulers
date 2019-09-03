@@ -6,7 +6,8 @@ class Login extends Component {
     // Set initial state
     state = {
         username: "",
-        password: ""
+        password: "",
+        id: 0
     }
 
     // Update state whenever an input field is edited
@@ -21,16 +22,18 @@ class Login extends Component {
     handleLogin = (event) => {
         event.preventDefault()
         UserManager.getUsernamePassword(this.state.username, this.state.password).then(user => {
+            this.setState({id: user[0].id})
             if (user.length === 0) {
                 window.alert("Not a valid username or password")
                 document.querySelector("#username").value = ""
                 document.querySelector("#password").value = ""
             } else {
                 sessionStorage.setItem(
-                    "credentials",
+                        "credentials",
                     JSON.stringify({
                         username: this.state.username,
-                        password: this.state.password
+                        password: this.state.password,
+                        id: this.state.id
                     })
                 )
                 this.props.history.push("/");

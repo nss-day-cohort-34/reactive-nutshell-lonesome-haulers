@@ -19,14 +19,19 @@ class ArticleEditForm extends Component {
 
     updateExistingArticle = evt => {
       evt.preventDefault()
+      const currentUser = JSON.parse(sessionStorage.getItem("credentials"))
+      const newDate = new Date();
+      const timestamp = newDate.toUTCString();
       this.setState({ loadingStatus: true });
       const editedArticle = {
         id: this.props.match.params.articleId,
         title: this.state.articleTitle,
         synopsis: this.state.articleSynopsis,
-        url: this.state.articleURL
+        url: this.state.articleURL,
+        timestamp: timestamp,
+        userId: currentUser.id
       };
-
+      
       ArticleManager.update(editedArticle)
       .then(() => this.props.history.push("/articles"))
     }

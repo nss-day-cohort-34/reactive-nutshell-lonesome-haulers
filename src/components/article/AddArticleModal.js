@@ -20,6 +20,11 @@ class AddArticleModal extends Component {
     */
     constructNewArticle = evt => {
         evt.preventDefault();
+        
+        const currentUser = JSON.parse(sessionStorage.getItem("credentials"))
+        const newDate = new Date();
+        const timestamp = newDate.toUTCString();
+        
         if (this.state.articleTitle === "" || this.state.articleSynopsis === "" || this.state.articleURL === "") {
             window.alert("Please input an article title, synopsis, and URL");
         } else {
@@ -27,8 +32,12 @@ class AddArticleModal extends Component {
             const article = {
                 title: this.state.articleTitle,
                 synopsis: this.state.articleSynopsis,
-                url: this.state.articleURL
+                url: this.state.articleURL,
+                timestamp: timestamp,
+                userId: currentUser.id
             };
+            console.log(article)
+      console.log(currentUser)
 
             // Create the article and redirect user to article list
             ArticleManager.post(article)
@@ -98,7 +107,6 @@ class AddArticleModal extends Component {
                     <div className="alignRight">
                         <button
                         type="button"
-                        disabled={this.state.loadingStatus}
                         onClick={this.constructNewArticle}
                         >Submit</button>
                     </div>

@@ -29,7 +29,7 @@ class Login extends Component {
                 document.querySelector("#password").value = ""
             } else {
                 sessionStorage.setItem(
-                    "credentials",
+                        "credentials",
                     JSON.stringify({
                         username: this.state.username,
                         password: this.state.password,

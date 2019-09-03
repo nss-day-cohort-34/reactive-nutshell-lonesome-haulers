@@ -25,19 +25,20 @@ class Register extends Component {
                 document.querySelector("#username").value = ""
                 document.querySelector("#password").value = ""
             } else {
-
-                sessionStorage.setItem(
-                    "credentials",
-                JSON.stringify({
-                    username: this.state.username,
-                    password: this.state.password,
-                    id: this.state.id
-                })
-            )
-                this.props.history.push("/");
-            }
-        })
-    }
+                UserManager.post(this.state).then(() => {
+                    sessionStorage.setItem(
+                        "credentials",
+                        JSON.stringify({
+                            username: this.state.username,
+                            password: this.state.password,
+                            id: this.state.id
+                        })
+                    )
+                    this.props.history.push("/");
+            })
+        }
+    })
+}
 
     handleCancel = (event) => {
         event.preventDefault()

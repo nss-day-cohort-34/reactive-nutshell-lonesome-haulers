@@ -1,4 +1,4 @@
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import React, { Component } from "react";
 import Home from "./Home";
 import ArticleList from "./article/ArticleList";
@@ -27,7 +27,7 @@ export default class ApplicationViews extends Component {
 
         <Route
           path="/friends" render={props => {
-            return <FriendList />
+            return <FriendList {...this.props} />
             // Remove null and return the component which will show list of friends
           }}
         />

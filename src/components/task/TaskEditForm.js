@@ -51,6 +51,7 @@ class TaskEditForm extends Component {
         <form>
           <fieldset>
             <div className="formgrid">
+              <label htmlFor="taskName">Task Name</label>
               <input
                 type="text"
                 required
@@ -59,8 +60,8 @@ class TaskEditForm extends Component {
                 id="taskName"
                 value={this.state.taskName}
               />
-              <label htmlFor="taskName">Task Name</label>
 
+            <label htmlFor="date">Due Date</label>  
               <input
                 type="date"
                 required
@@ -69,7 +70,6 @@ class TaskEditForm extends Component {
                 id="date"
                 value={this.state.date}
               />
-              <label htmlFor="date">Due Date</label>
             </div>
             <div className="alignRight">
               <button

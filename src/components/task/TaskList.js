@@ -21,8 +21,9 @@ username = (JSON.parse(sessionStorage.getItem("credentials")))
 componentDidMount(){
     console.log("TASK LIST: ComponentDidMount");
     
-    TaskManager.getAll()
+    TaskManager.getAll(this.username.id)
     .then((tasks) => {
+
         this.setState({
             tasks: tasks,
         })
@@ -39,7 +40,7 @@ toggleHidden() {
 deleteTask = id => {
     TaskManager.delete(id)
     .then(() => {
-    TaskManager.getAll(this.activeUserId)
+    TaskManager.getAll(this.username.id)
     .then((newTasks) => {
         this.setState({
             tasks: newTasks
@@ -58,7 +59,6 @@ updateTask = taskObj => {
 render(){
     console.log("task obj", this.state.tasks);
     
-
     return(
     <React.Fragment>
             <section className="task-content">
@@ -71,7 +71,7 @@ render(){
             <button className="button" onClick={this.toggleHidden.bind(this)}>Toggle Completed Tasks</button>
             </section>
             <div className="task_container">
-                {this.state.tasks.filter(task => task.isCompleted === false)
+                {this.state.tasks.filter(task => task.isCompleted === false && task.userId === this.username.id)
                 .map(task =>
                 <TaskCard
                     key={task.id}
@@ -84,7 +84,7 @@ render(){
                 )}
             </div>
             <div className="task_completed">
-                {this.state.tasks.filter(task => task.isCompleted === true && !this.state.isHidden)
+                {this.state.tasks.filter(task => task.isCompleted === true && !this.state.isHidden && task.userId === this.username.id)
                     .map(task =>
                         <TaskCompleted
                     key={task.id}

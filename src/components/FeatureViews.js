@@ -2,6 +2,7 @@ import { Route, Redirect } from "react-router-dom";
 import React, { Component } from "react";
 import Home from "./Home";
 import ArticleList from "./article/ArticleList";
+import EditArticleModal from "./article/EditAricleModal"
 import FriendList from "./friend/FriendList";
 import EventList from "./event/EventList";
 import TaskList from "./task/TaskList";
@@ -18,12 +19,15 @@ export default class ApplicationViews extends Component {
             // Remove null and return the component which will show news articles
           }}
         />
-        <Route
-          exact path="/articles" render={props => {
-            return <ArticleList />
-            // Remove null and return the component which will show news articles
-          }}
-        />
+        
+        <Route exact path="/articles" render={props => {
+        return <ArticleList {...props} />
+        }} />
+
+
+        <Route path="/articles/:articleId(\d+)/edit" render={props => {
+          return <EditArticleModal {...props} />
+        }} />
 
         <Route
           path="/friends" render={props => {

@@ -19,19 +19,18 @@ class Register extends Component {
     handleRegister = (event) => {
         event.preventDefault()
         UserManager.getUsername(this.state.username).then(user => {
-            this.setState({id: user[0].id})
             if (user.length !== 0) {
                 window.alert("Account already exists")
                 document.querySelector("#username").value = ""
                 document.querySelector("#password").value = ""
             } else {
-                UserManager.post(this.state).then(() => {
+                UserManager.post(this.state).then((object) => {
                     sessionStorage.setItem(
                         "credentials",
                         JSON.stringify({
                             username: this.state.username,
                             password: this.state.password,
-                            id: this.state.id
+                            id: object.id
                         })
                     )
                     this.props.history.push("/");

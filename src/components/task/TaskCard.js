@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import { Button } from 'reactstrap';
+=======
+>>>>>>> master
 // import './task.css'
 
 
@@ -13,7 +16,6 @@ class TaskCard extends Component {
     }
  
     render() {
-
     return (
        <>
        <div className="card">

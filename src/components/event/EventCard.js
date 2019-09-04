@@ -4,11 +4,12 @@ import EditModalHelper from './EditModalHelper';
 // import './Event.css'
 import { Button } from 'reactstrap';
 
+let styles = {
+    backgroundColor: 'cornsilk',
+  };
 class EventCard extends Component {
 
-    // startModal = () => {
-    //     return <EditModalHelper />
-    // }
+    
 
     render() {
         const currentUser = JSON.parse(sessionStorage.getItem("credentials"))
@@ -28,11 +29,11 @@ class EventCard extends Component {
         } else {
             return (
                 <div className="card">
-                    <div className="card-content">
-                        <h3>{this.props.event.eventName}</h3>
-                        <p>Location: {this.props.event.location}</p>
-                        <p>Date: {this.props.event.date}</p>
-                        <p>Created by {this.props.event.user.username}</p>
+                    <div className="card-content" style={styles}>
+                        <h3><i>{this.props.event.eventName}</i></h3>
+                        <p><i>Location: {this.props.event.location}</i></p>
+                        <p><i>Date: {this.props.event.date}</i></p>
+                        <p><i>Created by {this.props.event.user.username}</i></p>
                     </div>
                 </div>
             );

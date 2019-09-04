@@ -32,7 +32,6 @@ class EditEventModal extends Component {
             window.alert("Please fill out all fields with a date that has not passed")
         } else {
             this.setState({ loadingStatus: true })
-            // const currentUser = EventFilterFunction.foundUser()
             const editedEvent = {
                 eventName: this.state.eventName,
                 location: this.state.location,
@@ -63,7 +62,6 @@ class EditEventModal extends Component {
       }
 
     render() {
-        console.log(this.props)
         return (
             <>
                 <h1>Edit Event</h1>

@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import MessageCard from "./MessageCard"
 import MessageManager from "../../modules/MessageManager"
+import { Button } from 'reactstrap';
 
 
 
@@ -63,7 +64,8 @@ class MessageList extends Component {
     render() {
         return (
             <>
-            <h1>messages</h1>
+            <h1 className="feature__name h1_messages">Messages</h1>
+            <hr></hr>
                 <div className="messageContainer">
                     {this.state.messages.map(message =>
                         <MessageCard
@@ -83,7 +85,7 @@ class MessageList extends Component {
                         id="message"
                         placeholder="Enter a Message"
                     />
-                <button onClick={this.constructNewMessage}>Submit</button>
+                <Button outline color="dark" size="sm"  onClick={this.constructNewMessage}>Submit</Button>
                 </div>
             </>
         )

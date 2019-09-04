@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import EditEventModal from "./EditEventModal"
 import EditModalHelper from './EditModalHelper';
 // import './Event.css'
+import { Button } from 'reactstrap';
 
 let styles = {
     backgroundColor: 'cornsilk',
@@ -21,7 +22,7 @@ class EventCard extends Component {
                         <p>Date: {this.props.event.date}</p>
                         <p>Created by {this.props.event.user.username}</p>
                         <EditModalHelper {...this.props} />
-                        <button type="button" onClick={() => this.props.deleteEvent(this.props.event.id)}>Delete</button>
+                        <Button outline color="danger" size="sm" onClick={() => this.props.deleteEvent(this.props.event.id)}>Delete</Button>
                     </div>
                 </div>
             );

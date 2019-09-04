@@ -1,0 +1,140 @@
+
+
+.card {
+    padding: 15px;
+    margin-top: 0px;
+    margin: 15px;
+    background: rgb(255, 255, 255);
+    flex-basis: 30%;
+    /* border-style: solid;
+    border-size: 1px; */
+    box-shadow: 2px 2px 7px rgb(206, 205, 205);
+}
+
+.login_container {
+    text-align: center;
+}
+
+.card--first {
+    font-style: italic;
+    flex-basis: 30%;
+    background-color:rgb(240, 230, 212);
+}
+
+.firstEventName {
+    color: rgb(163, 25, 25);
+    font-size: 2em;
+    font-weight: 900;
+}
+
+.formgrid {
+    /* display: flex; */
+    margin: 10px;
+}
+
+label {
+    margin: 5px;
+}
+
+a.nav-link {    
+    color: white;
+}
+
+a.nav-link:hover {
+    color: rgb(132, 184, 226);
+}
+
+.card-completed {
+    padding: 10px;
+    margin: 10px;
+    background: rgb(218, 114, 114);
+    flex-basis: 30%;
+    color: gray;
+    text-decoration: line-through;
+}
+
+
+
+.task__name {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.taskComplete_name {
+    font-size: 1.1em;
+}
+
+.feature__name {
+    font-size: 1.7em;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-bottom: 0px;
+    background-color: whitesmoke;
+}
+
+/* .feature__name.h1_messages {
+    margin-bottom: 125px;
+} */
+
+.task_container, .task_completed {
+    /* display: flex;
+    flex-wrap: wrap; */
+
+}
+
+.welcome_greeting {
+    font-size: 1.2em;
+    margin: auto;
+    margin-top: 20px;
+ 
+}
+
+h2, h3 {
+    font-size: 1.5em;
+}
+
+.button {
+    align-content: center;
+    justify-content: center;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.sign_out {
+    height: 40px;
+    margin: auto;
+    margin-right: 5px;
+}
+
+.outline_button {
+    margin-right: 10px;
+}
+
+#message {
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+.btn {
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+.checked {
+    /* display: none; */
+    text-decoration: line-through;
+    opacity: 0.5;
+    display: none;
+    width: 0px;
+}
+
+hr {
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+img {
+    width: 27%;
+    height: auto;
+}
+

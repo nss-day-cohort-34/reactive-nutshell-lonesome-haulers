@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import TaskManager from '../../modules/TaskManager';
-// import './TaskForm.css'
+import ReactModal from 'react-modal'
+import { Button } from 'reactstrap';
+
 
 
 
@@ -68,11 +70,11 @@ class TaskForm extends Component {
                         
                     </div>
                     <div className="alignRight">
-                        <button className="btn-primary"
+                        <Button outline color="dark" size="sm" className=""
                         type="button"
                         disabled={this.state.loadingStatus}
                         onClick={this.constructNewTask}
-                        >Submit</button>
+                        >Submit</Button>
                     </div>
                 </fieldset>
             </form>

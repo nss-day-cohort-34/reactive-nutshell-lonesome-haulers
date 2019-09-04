@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import FriendManager from "../../modules/FriendManager"
+import { Button } from 'reactstrap';
 
 
 
@@ -28,7 +29,7 @@ class AddFriendModal extends Component {
         if (filteredData.length < 1 && username.id !== this.props.friend.id) {
             return (
                 <>
-                    <p>{this.props.friend.username} <button onClick={() => this.constructNewFriendship()}>AddFriend</button></p>
+                    <p>{this.props.friend.username} <Button outline color="dark" size="sm" onClick={() => this.constructNewFriendship()}>AddFriend</Button></p>
                 </>
             )
         } else if (this.props.friend.id === username.id) {

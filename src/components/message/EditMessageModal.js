@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import ReactModal from 'react-modal'
 import MessageManager from "../../modules/MessageManager"
+import { Button } from 'reactstrap';
+
 const customStyles = {
     content: {
         top: '50%',
@@ -107,7 +109,7 @@ class EditMessageModal extends Component {
 
                     </ReactModal>
 
-                    <button onClick={this.openModal}>Edit</button>
+                    <Button outline color="dark" size="sm" onClick={this.openModal}>Edit</Button>
                 </>
             )
         }

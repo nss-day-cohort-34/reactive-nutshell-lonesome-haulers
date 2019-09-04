@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import ReactModal from 'react-modal'
 import EditEventModal from "./EditEventModal";
+import { Button } from 'reactstrap';
 
 
 const customStyles = {
@@ -52,7 +53,7 @@ class EditModalHelper extends Component {
     
     
         </ReactModal>
-        <button onClick={this.openModal}>Edit</button>
+        <Button outline color="dark" size="sm"  onClick={this.openModal}>Edit</Button>
 
             </>
         )

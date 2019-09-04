@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import UserManager from "../../modules/UserManager"
 import FriendManager from "../../modules/FriendManager"
+import { Button } from 'reactstrap';
 
 class FriendCard extends Component {
 
@@ -55,7 +56,7 @@ class FriendCard extends Component {
                 return (
                     <div className="card">
                         <div className="card-content">
-                            <p>{this.state.usernameOfOtherFriendId} <button onClick={() => this.props.deleteFriend(this.props.friend.id)}>Delete</button></p>
+                            <p>{this.state.usernameOfOtherFriendId} <Button outline color="danger" onClick={() => this.props.deleteFriend(this.props.friend.id)}>Delete</Button></p>
                         </div>
                     </div>
                 );
@@ -63,7 +64,7 @@ class FriendCard extends Component {
                 return (
                     <div className="card">
                         <div className="card-content">
-                            <p>{this.state.usernameOfOtherFriendId} <i>Pending</i><button onClick={() => this.props.deleteFriend(this.props.friend.id)}>Delete</button></p>
+                            <p>{this.state.usernameOfOtherFriendId} <i>Pending</i><Button outline color="danger" size="sm" onClick={() => this.props.deleteFriend(this.props.friend.id)}>Delete</Button></p>
                         </div>
                     </div>
                 );
@@ -74,7 +75,7 @@ class FriendCard extends Component {
                 return (
                     <div className="card">
                         <div className="card-content">
-                            <p>{this.state.usernameOfUserId} <button onClick={() => this.props.deleteFriend(this.props.friend.id)}>Delete</button></p>
+                            <p>{this.state.usernameOfUserId} <Button outline color="danger" size="sm" onClick={() => this.props.deleteFriend(this.props.friend.id)}>Delete</Button></p>
                         </div>
                     </div>
                 );
@@ -82,7 +83,7 @@ class FriendCard extends Component {
                 return (
                     <div className="card">
                         <div className="card-content">
-                            <p>{this.state.usernameOfUserId} <i>Pending</i> <button onClick={() => this.updateExistingFriendship()}>Accept</button><button onClick={() => this.props.deleteFriend(this.props.friend.id)}>Deny</button></p>
+                            <p>{this.state.usernameOfUserId} <i>Pending</i> <Button outline color="danger" size="sm" onClick={() => this.updateExistingFriendship()}>Accept</Button><button onClick={() => this.props.deleteFriend(this.props.friend.id)}>Deny</button></p>
                         </div>
                     </div>
                 );

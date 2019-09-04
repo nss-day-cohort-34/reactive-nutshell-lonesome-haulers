@@ -43,8 +43,10 @@ class Login extends Component {
 
     render() {
         return (
+            <div className="login_container">
             <form onSubmit={this.handleLogin}>
-                <h2>Welcome To Nutshell</h2>
+                <h2>Welcome To</h2>
+                <img src={ require('./Nutshell_logo.png') }/>
                 <fieldset>
                     <h3>Login</h3>
                     <div className="formgrid">
@@ -64,7 +66,7 @@ class Login extends Component {
             </button>
                     <Link className="nav-link" to="/register">Don't have an account?</Link>
                 </fieldset>
-            </form>
+            </form></div>
         )
     }
 }

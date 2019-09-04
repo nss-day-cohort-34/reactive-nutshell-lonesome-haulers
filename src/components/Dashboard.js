@@ -129,9 +129,11 @@ class Dashboard extends Component {
                             updateFriends={this.updateFriends}
                             updateEvents={this.updateEvents}
                             updateArticles={this.updateArticles}
+                            updateUsers={this.updateUsers}
                             friends={this.state.friends}
                             events={this.state.events}
                             articles={this.state.articles}
+                            users={this.state.users}
                             {...this.props} />
                     </div>
                     <div className="rightContainer">

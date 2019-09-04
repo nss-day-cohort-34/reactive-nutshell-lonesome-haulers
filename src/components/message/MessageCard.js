@@ -63,7 +63,6 @@ class MessageCard extends Component {
     render() {
         if (this.props.users.length !== 0) {
             const foundUser = this.props.users.find(user => user.id === this.props.message.userId)
-            console.log(this.props.users)
             const userColor = {
                 color: foundUser.color
             }

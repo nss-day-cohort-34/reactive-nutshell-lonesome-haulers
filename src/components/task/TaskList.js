@@ -37,9 +37,10 @@ toggleHidden() {
 }
 
 deleteTask = id => {
+    const username = (JSON.parse(sessionStorage.getItem("credentials")))
     TaskManager.delete(id)
     .then(() => {
-    TaskManager.getAll(this.username.id)
+    TaskManager.getAll(username.id)
     .then((newTasks) => {
         this.setState({
             tasks: newTasks

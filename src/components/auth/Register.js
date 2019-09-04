@@ -41,7 +41,7 @@ class Register extends Component {
 
     handleCancel = (event) => {
         event.preventDefault()
-        this.props.history.push("/");
+        this.props.history.push("/login");
     }
 
     render() {

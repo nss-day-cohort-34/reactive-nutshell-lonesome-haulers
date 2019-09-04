@@ -13,7 +13,16 @@
 
 .login_container {
     text-align: center;
-}
+    background-color: rgb(238, 238, 241);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 30%;
+    width: 70%;
+    margin: -15% 0 0 -33%;
+    box-shadow: 2px 2px 16px rgb(161, 160, 160);
+};
+
 
 .card--first {
     font-style: italic;
@@ -40,6 +49,16 @@ a.nav-link {
     color: white;
 }
 
+a.nav-link_login {
+    color: gray;
+    margin-bottom: 30px;
+}
+
+a.nav-link_login:hover {
+    color: rgb(132, 184, 226);
+
+}
+
 a.nav-link:hover {
     color: rgb(132, 184, 226);
 }
@@ -56,7 +75,7 @@ a.nav-link:hover {
 
 
 .task__name {
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: bold;
 }
 
@@ -69,6 +88,7 @@ a.nav-link:hover {
     margin-top: 10px;
     margin-left: 5px;
     margin-bottom: 0px;
+    border-bottom: dashed 1px lightgrey;
     background-color: whitesmoke;
 }
 
@@ -91,6 +111,11 @@ a.nav-link:hover {
 
 h2, h3 {
     font-size: 1.5em;
+    font-weight: bold;
+}
+
+.friend_submit {
+    width: 95%;
 }
 
 .button {
@@ -113,6 +138,8 @@ h2, h3 {
 #message {
     margin-left: 5px;
     margin-bottom: 5px;
+    margin-right: 4px;
+    width: 97%;
 }
 
 .btn {
@@ -138,3 +165,6 @@ img {
     height: auto;
 }
 
+.welcome {
+    margin-top: 15px;
+}

@@ -49,35 +49,39 @@ class TaskForm extends Component {
 
         return(
             <>
-            <form>
-                <fieldset>
-                    <div className="formgrid">
-                        <label htmlFor="taskName"> Name</label>
-                        <input type="text"
-                        required
-                        onChange={this.handleFieldChange}
-                        id="taskName"
-                        placeholder="Task name"
-                        />
-                        <label htmlFor="date"> Date</label>
-                        <input
-                        type="date"
-                        required
-                        onChange={this.handleFieldChange}
-                        id="date"
-                        placeholder="Due Date"
-                        />
-                        
-                    </div>
-                    <div className="alignRight">
-                        <Button outline color="dark" size="sm" className=""
-                        type="button"
-                        disabled={this.state.loadingStatus}
-                        onClick={this.constructNewTask}
-                        >Submit</Button>
-                    </div>
-                </fieldset>
-            </form>
+            <div className="task_form_container">
+                <form>
+                    <fieldset>
+                        <div className="formgrid">
+                            <label htmlFor="taskName"> Name</label>
+                            <input type="text"
+                            required
+                            className="form-control"
+                            onChange={this.handleFieldChange}
+                            id="taskName"
+                            placeholder="Task name"
+                            />
+                            <label htmlFor="date"> Date</label>
+                            <input
+                            type="date"
+                            required
+                            className="form-control"
+                            onChange={this.handleFieldChange}
+                            id="date"
+                            placeholder="Due Date"
+                            />
+                            
+                        </div>
+                        <div className="alignRight">
+                            <Button outline color="dark" size="sm" className=""
+                            type="button"
+                            disabled={this.state.loadingStatus}
+                            onClick={this.constructNewTask}
+                            >Submit</Button>
+                        </div>
+                    </fieldset>
+                </form>
+                </div>
         </>
         )
     }

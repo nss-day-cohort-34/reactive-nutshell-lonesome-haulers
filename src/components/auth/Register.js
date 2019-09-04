@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import UserManager from "../../modules/UserManager"
+import { Button } from 'reactstrap';
+
 class Register extends Component {
 
     // Set initial state
@@ -50,8 +52,10 @@ class Register extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleRegister}>
-                <h2>Welcome To Nutshell</h2>
+            <div className="login_container">
+                <form onSubmit={this.handleRegister}>
+                <h2 className="welcome">Welcome To</h2>
+                <img src={ require('./Nutshell_logo.png') }/>
                 <fieldset>
                     <h3>Register</h3>
                     <div className="formgrid">
@@ -66,14 +70,15 @@ class Register extends Component {
                             placeholder="Password"
                             required="" />
                     </div>
-                    <button className="btn" type="submit">
+                    <Button outline color="dark" size="sm" type="submit">
                         Submit
-            </button>
-                    <button className="btn" type="cancel" onClick={this.handleCancel}>
+            </Button>
+            <Button outline color="dark" size="sm" type="cancel" onClick={this.handleCancel}>
                         Cancel
-            </button>
+            </Button>
                 </fieldset>
             </form>
+            </div>
         )
     }
 

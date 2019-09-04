@@ -85,7 +85,8 @@ class MessageList extends Component {
                         id="message"
                         placeholder="Enter a Message"
                     />
-                <Button outline color="dark" size="sm"  onClick={this.constructNewMessage}>Submit</Button>
+                    <div className="friend_submit">
+                <Button outline color="dark" size="sm" block onClick={this.constructNewMessage}>Submit</Button></div>
                 </div>
             </>
         )

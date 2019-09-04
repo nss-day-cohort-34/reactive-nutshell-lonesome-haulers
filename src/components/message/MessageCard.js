@@ -68,16 +68,16 @@ class MessageCard extends Component {
                     contentLabel="Modal"
                 >
                     <h2>Would you like to be friends with {this.props.message.user.username}?</h2>
-                    <button
+                    <Button outline color="dark" size="sm"
                         type="button"
                         onClick={() => { this.constructNewFriendship() }}
-                        className="btn btn-primary"
-                    >Yes</button>
-                    <button
+                        className=""
+                    >Yes</Button>
+                    <Button outline color="dark" size="sm"
                         type="button"
                         onClick={this.closeModal}
-                        className="btn btn-primary"
-                    >No</button>
+                        className=""
+                    >No</Button>
 
                 </ReactModal>
                 <div className="card">

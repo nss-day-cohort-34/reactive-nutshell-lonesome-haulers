@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import UserManager from "../../modules/UserManager"
+import { Button } from 'reactstrap';
+
 class Login extends Component {
 
     // Set initial state
@@ -45,7 +47,7 @@ class Login extends Component {
         return (
             <div className="login_container">
             <form onSubmit={this.handleLogin}>
-                <h2>Welcome To</h2>
+                <h2 className="welcome">Welcome To</h2>
                 <img src={ require('./Nutshell_logo.png') }/>
                 <fieldset>
                     <h3>Login</h3>
@@ -61,10 +63,11 @@ class Login extends Component {
                             placeholder="Password"
                             required="" />
                     </div>
-                    <button className="btn" type="submit">
+                    <Button outline color="dark" size="sm" type="submit">
                         Submit
-            </button>
-                    <Link className="nav-link" to="/register">Don't have an account?</Link>
+            </Button>
+            <br></br>
+                    <Link className="nav-link_login" to="/register">Don't have an account?</Link>
                 </fieldset>
             </form></div>
         )

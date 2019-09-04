@@ -17,9 +17,7 @@ class HomeEventCard extends Component {
             let popularFriendArray = []
             UserManager.getAll().then(users => {
                 users.forEach(user => {
-                    console.log("friendarray", friends)
                     const usersFriendships = friends.filter(friend => (friend.userId === user.id || friend.otherFriendId === user.id) && friend.areFriends === true)
-                    console.log("userFriendships", usersFriendships)
                     if (usersFriendships.length > popularFriendArray.length) {
                         popularFriendArray = usersFriendships
                         this.setState({ popularUsername: user.username, userId: user.id, numberOfFriends: popularFriendArray.length })
@@ -35,20 +33,23 @@ class HomeEventCard extends Component {
     }
 
     render() {
-        console.log(this.props.friends)
-        if (this.state.popularUsername !== "") {
+        if (this.state.popularUsername !== "" || this.state.userId !== 0) {
+            const foundUser = this.props.users.find(user => user.id === this.state.userId)
+            const userColor = {
+                color: foundUser.color
+            }
             return (
-            <div className="card">
-                <div className="card-content">
-                    <h2>Most Popular User</h2>
-                    <h3 id={"invisibleButton--" + this.state.userId}>{this.state.popularUsername}</h3>
-                    <p>{this.state.numberOfFriends} Friends</p>
+                <div className="card">
+                    <div className="card-content">
+                        <h2>Most Popular User</h2>
+                        <h3 style={userColor}>{this.state.popularUsername}</h3>
+                        <p>{this.state.numberOfFriends} Friends</p>
+                    </div>
                 </div>
-            </div>
             )
         } else {
             return (
-            <h3>There are no friendships in Nutshell</h3>
+                <h3>There are no friendships in Nutshell</h3>
             )
         }
     }

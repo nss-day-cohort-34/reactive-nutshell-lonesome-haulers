@@ -7,7 +7,6 @@ class HomeArticleCard extends Component {
 
 
     render() {
-        console.log(this.props)
         if (this.props.articles.length !== 0) {
         return (
             <div className="card">

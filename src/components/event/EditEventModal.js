@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import EventManager from '../../modules/EventManager'
-
+import { Button } from 'reactstrap';
 
 class EditEventModal extends Component {
 
@@ -75,7 +75,7 @@ class EditEventModal extends Component {
                 <p></p>
                 <label htmlFor="">Event Name</label>
                 <input type="date" id="date" onChange={this.handleFieldChange} value={this.state.date}></input>
-                <button onClick={this.updateExistingEvent}>Save</button>
+                <Button outline color="dark" size="sm" onClick={this.updateExistingEvent}>Save</Button>
             </>
         )
     }

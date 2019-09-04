@@ -4,6 +4,7 @@ import FeatureViews from './FeatureViews';
 import NavBar from './nav/NavBar';
 import "./Dashboard.css"
 import FriendManager from "../modules/FriendManager"
+import { Button } from 'reactstrap';
 
 class Dashboard extends Component {
     state = {
@@ -37,9 +38,10 @@ class Dashboard extends Component {
                 <div className="masterContainer">
                     <div className="leftContainer">
                         <div className="headerContainer">
-                            <h2>NutShell</h2>
-                            <h3>Welcome {username.username}</h3>
-                            <button className="btn" onClick={this.logout}>Logout</button>
+                        <img src={ require('../img/Nutshell_logo.png') }/>
+                            {/* <h2>NutShell</h2> */}
+                            <h3 className="welcome_greeting">Welcome, {username.username}!</h3>
+                            <Button outline color="secondary" size="sm" className="sign_out" onClick={this.logout}>Logout</Button>
                         </div>
                         <NavBar />
                         <FeatureViews

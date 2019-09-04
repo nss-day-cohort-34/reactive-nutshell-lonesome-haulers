@@ -2,16 +2,23 @@
     display: flex;
     justify-content: space-evenly;
     min-height: 787px;
+    background-color: rgb(238, 238, 241);
+    border-bottom: dashed 1px lightgrey;
 }
 
 .leftContainer {
     flex-basis: 60%;
-    border: 1px solid red;
+    
+    
+    
 }
 
 .rightContainer {
     flex-basis: 40%;
-    border: 1px solid blue;
+    /* margin-top: 124px; */
+    /* background-color: rgb(238, 238, 241); */
+    border-left: dashed 1px lightgrey;
+  
 }
 
 .headerContainer {

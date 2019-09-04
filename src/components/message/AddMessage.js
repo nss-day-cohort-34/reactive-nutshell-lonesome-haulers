@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MessageManager from "../../modules/MessageManager"
+import { Button } from 'reactstrap';
 
 class AddMessage extends Component {
     state = {
@@ -47,7 +48,7 @@ class AddMessage extends Component {
                         placeholder="Enter a Message"
                     />
                 </div>
-                <button onClick={this.constructNewMessage}>Submit</button>
+                <Button outline color="dark" size="sm" onClick={this.constructNewMessage}>Submit</Button>
             </>
         )
     }

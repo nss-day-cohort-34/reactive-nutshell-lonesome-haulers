@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TaskManager from '../../modules/TaskManager';
 import ReactModal from 'react-modal'
+import { Button } from 'reactstrap';
 // import './TaskForm.css'
 
 const userId = parseInt(sessionStorage.getItem("userId"))
@@ -82,6 +83,7 @@ class TaskForm extends Component {
                 style={customStyles}
                 contentLabel="Modal"
                 ></ReactModal>
+        <div className="task_form_container">
             <form>
                 <fieldset>
                     <div className="formgrid">
@@ -103,14 +105,14 @@ class TaskForm extends Component {
                         
                     </div>
                     <div className="alignRight">
-                        <button className="btn-primary"
+                        <Button outline color="dark" size="sm" className=""
                         type="button"
                         disabled={this.state.loadingStatus}
                         onClick={this.constructNewTask}
-                        >Submit</button>
+                        >Submit</Button>
                     </div>
                 </fieldset>
-            </form>
+            </form></div>
         </>
         )
     }

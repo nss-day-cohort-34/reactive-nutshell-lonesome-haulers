@@ -117,7 +117,7 @@ class ArticleEditForm extends Component {
           </fieldset>
         </form>
         </ReactModal>
-            <h1>articles</h1>
+            <h1 className="feature__name">Articles</h1>
             <button onClick={this.openModal}>Edit Article</button>
         </>
       );

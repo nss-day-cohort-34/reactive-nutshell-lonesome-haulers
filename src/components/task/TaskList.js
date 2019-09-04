@@ -3,6 +3,7 @@ import ReactModal from 'react-modal'
 import TaskCard from './TaskCard'
 import TaskCompleted from './TaskCompleted'
 import TaskManager from '../../modules/TaskManager'
+import { Button } from 'reactstrap';
 import './TaskList.css'
 
 ReactModal.setAppElement('#root')
@@ -63,12 +64,12 @@ render(){
     <React.Fragment>
             <section className="task-content">
                 <h1 className="feature__name">Tasks</h1>
-            <button type="button"
-                className="button"
+                <hr></hr>
+            <Button outline color="secondary" size="sm"
                 onClick={() => {this.props.history.push("/tasks/new")}}>
                 Add a new task
-            </button>
-            <button className="button" onClick={this.toggleHidden.bind(this)}>Toggle Completed Tasks</button>
+            </Button>
+            <Button outline color="secondary" size="sm" className="outline_button" onClick={this.toggleHidden.bind(this)}>Toggle Completed Tasks</Button>
             </section>
             <div className="task_container">
                 {this.state.tasks.filter(task => task.isCompleted === false && task.userId === this.username.id)

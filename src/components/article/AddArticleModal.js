@@ -1,7 +1,9 @@
 import React, { Component } from "react"
 import ArticleManager from '../../modules/ArticleManager';
 import ReactModal from 'react-modal'
+import { Button } from 'reactstrap';
 ReactModal.setAppElement('#root')
+
 
 class AddArticleModal extends Component {
     state = {
@@ -113,8 +115,9 @@ class AddArticleModal extends Component {
                 </fieldset>
             </form>
         </ReactModal>
-            <h1>Articles</h1>
-            <button onClick={this.openModal}>Add New Article</button>
+            <h1 className="feature__name">Articles</h1>
+            <hr></hr>
+            <Button outline color="secondary" size="sm" onClick={this.openModal}>Add New Article</Button>
             </>
         )
     }

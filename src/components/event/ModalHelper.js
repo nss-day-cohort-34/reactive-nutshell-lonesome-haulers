@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import ReactModal from 'react-modal'
 import AddEventModal from "./AddEventModal";
-
+import { Button } from 'reactstrap';
 
 const customStyles = {
     content: {
@@ -52,8 +52,9 @@ class ModalHelper extends Component {
     
     
         </ReactModal>
-            <h1>events</h1>
-            <button className="btn-primary" onClick={this.openModal}>Add Event</button>
+            <h1 className="feature__name">Events</h1>
+            <hr></hr>
+            <Button outline color="secondary" size="sm" onClick={this.openModal}>Add Event</Button>
             </>
         )
     }

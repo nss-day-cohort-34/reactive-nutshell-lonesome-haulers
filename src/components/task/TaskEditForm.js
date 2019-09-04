@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import TaskManager from "../../modules/TaskManager"
+import { Button } from 'reactstrap';
 // import "./OwnerForm.css"
 
 class TaskEditForm extends Component {
@@ -48,6 +49,7 @@ class TaskEditForm extends Component {
     render() {
       return (
         <>
+        <div className="task_form_container">
         <form>
           <fieldset>
             <div className="formgrid">
@@ -72,14 +74,15 @@ class TaskEditForm extends Component {
               />
             </div>
             <div className="alignRight">
-              <button
+            <Button outline color="dark" size="sm"
                 type="button" disabled={this.state.loadingStatus}
                 onClick={this.updateExistingTask}
-                className="btn btn-primary"
-              >Submit</button>
+                className=""
+              >Submit</Button>
             </div>
           </fieldset>
         </form>
+        </div>
         </>
       );
     }

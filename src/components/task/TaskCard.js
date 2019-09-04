@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
+import { Button } from 'reactstrap';
 // import './task.css'
 
 
@@ -15,15 +16,16 @@ class TaskCard extends Component {
 
     return (
        <>
+       <div className="card">
         <div className="card-content">
         <h3 className="task__name">{this.props.task.task}</h3>
           <p>Due Date: {this.props.task.date}</p>
           <p>Mark as Done: <input type="checkbox" id="isCompleted" checked={this.props.task.isCompleted} onChange={this.handleCheck} /></p>
           <div className="card__Buttons">
-          <button className="button" type="button"
-          onClick={() => {this.props.history.push(`/tasks/${this.props.task.id}/edit`)}}>Edit</button>
-          <button className="button" type="button" onClick={() => this.props.deleteTask(this.props.task.id)}>Delete</button></div>
-        </div>
+          <Button outline color="dark" size="sm"
+          onClick={() => {this.props.history.push(`/tasks/${this.props.task.id}/edit`)}}>Edit</Button>
+          <Button outline color="danger" size="sm" onClick={() => this.props.deleteTask(this.props.task.id)}>Delete</Button></div>
+        </div></div>
        </>
     );
   }

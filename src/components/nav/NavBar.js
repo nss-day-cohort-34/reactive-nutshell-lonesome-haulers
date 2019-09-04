@@ -1,12 +1,14 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
+import './NavBar.css'
+
 
 
 class NavBar extends Component {
     render() {
         return (
-            <nav className="navbar navbar-light light-blue flex-md-nowrap p-0 shadow">
+            <nav className="navbar navbar-dark bg-dark">
                 <ul className="nav nav-pills nav-fill">
                     <li className="nav-item">
                         <Link className="nav-link" to="/articles">Articles</Link>

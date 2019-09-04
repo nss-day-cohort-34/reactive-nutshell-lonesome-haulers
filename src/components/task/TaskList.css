@@ -1,10 +1,15 @@
-.card-content {
-    padding: 10px;
+
+
+.card {
+    padding: 15px;
     margin: 10px;
     background: lightblue;
     flex-basis: 30%;
-    /* border-radius: 7%; */
+    /* border-style: solid;
+    border-size: 1px; */
 }
+
+
 
 .card-completed {
     padding: 10px;
@@ -14,6 +19,8 @@
     color: gray;
     text-decoration: line-through;
 }
+
+
 
 .task__name {
     font-size: 1.1em;
@@ -25,8 +32,14 @@
 }
 
 .feature__name {
-    font-size: 2.3em;
+    font-size: 2em;
+    margin-top: 10px;
+    margin-left: 5px;
 }
+
+/* .feature__name.h1_messages {
+    margin-bottom: 125px;
+} */
 
 .task_container, .task_completed {
     /* display: flex;
@@ -34,10 +47,17 @@
 
 }
 
+.welcome_greeting {
+    font-size: 1.2em;
+}
 
 .button {
     align-content: center;
     justify-content: center;
+    margin-right: 10px;
+}
+
+.outline_button {
     margin-right: 10px;
 }
 

@@ -4,6 +4,8 @@ import FriendManager from "../../modules/FriendManager"
 import ReactModal from 'react-modal'
 import UserManager from "../../modules/UserManager"
 import AddFriendModal from "./AddFriendModal"
+import { Button } from 'reactstrap';
+
 import "./Friend.css"
 
 const customStyles = {
@@ -113,15 +115,16 @@ class FriendList extends Component {
                                 {...this.props} />
                         )}
                     </div>
-                    <button
+                    <Button outline color="danger" size="sm"
                         type="button"
                         onClick={this.closeModal}
-                        className="btn btn-primary"
-                    >Cancel</button>
+                        className=""
+                    >Cancel</Button>
 
                 </ReactModal>
-                <h1>friends</h1>
-                <button onClick={this.openModal}>Add Friend</button>
+                <h1 className="feature__name">Friends</h1>
+                <hr></hr>
+                <Button outline color="secondary" size="sm" onClick={this.openModal}>Add Friend</Button>
                 {friendships.map(friend =>
                     <FriendCard
                         key={friend.id}

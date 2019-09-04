@@ -1,6 +1,6 @@
 import { Route } from "react-router-dom";
 import React, { Component } from "react";
-import Home from "./Home";
+import Home from "./home/Home";
 import ArticleList from "./article/ArticleList";
 import EditArticleModal from "./article/EditAricleModal"
 import FriendList from "./friend/FriendList";
@@ -17,7 +17,7 @@ export default class ApplicationViews extends Component {
 
         <Route
           exact path="/" render={props => {
-            return <Home />
+            return <Home {...this.props}/>
             // Remove null and return the component which will show news articles
           }}
         />

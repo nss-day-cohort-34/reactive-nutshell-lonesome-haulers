@@ -8,6 +8,7 @@ import './TaskList.css'
 ReactModal.setAppElement('#root')
 
 
+
 class TaskList extends Component {
     //define what this component needs to render
     state = {
@@ -16,11 +17,10 @@ class TaskList extends Component {
     }
 
     
-username = (JSON.parse(sessionStorage.getItem("credentials")))
 
 componentDidMount(){
-    
-    TaskManager.getAll(this.username.id)
+    const username = (JSON.parse(sessionStorage.getItem("credentials")))
+    TaskManager.getAll(username.id)
     .then((tasks) => {
 
         this.setState({
@@ -56,7 +56,7 @@ updateTask = taskObj => {
 }
 
 render(){
-    
+    const username = (JSON.parse(sessionStorage.getItem("credentials")))
     return(
     <React.Fragment>
             <section className="task-content">
@@ -69,7 +69,7 @@ render(){
             <button className="button" onClick={this.toggleHidden.bind(this)}>Toggle Completed Tasks</button>
             </section>
             <div className="task_container">
-                {this.state.tasks.filter(task => task.isCompleted === false && task.userId === this.username.id)
+                {this.state.tasks.filter(task => task.isCompleted === false && task.userId === username.id)
                 .map(task =>
                 <TaskCard
                     key={task.id}
@@ -82,7 +82,7 @@ render(){
                 )}
             </div>
             <div className="task_completed">
-                {this.state.tasks.filter(task => task.isCompleted === true && !this.state.isHidden && task.userId === this.username.id)
+                {this.state.tasks.filter(task => task.isCompleted === true && !this.state.isHidden && task.userId === username.id)
                     .map(task =>
                         <TaskCompleted
                     key={task.id}

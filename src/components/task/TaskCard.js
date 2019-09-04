@@ -11,7 +11,6 @@ class TaskCard extends Component {
     }
  
     render() {
-
     return (
        <>
         <div className="card-content">

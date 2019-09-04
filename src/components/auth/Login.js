@@ -46,7 +46,7 @@ class Login extends Component {
             <div className="login_container">
             <form onSubmit={this.handleLogin}>
                 <h2>Welcome To</h2>
-                <img src={ require('/Nutshell_logo.png') }/>
+                <img src={ require('./Nutshell_logo.png') }/>
                 <fieldset>
                     <h3>Login</h3>
                     <div className="formgrid">

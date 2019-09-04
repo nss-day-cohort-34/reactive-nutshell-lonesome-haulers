@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import TaskManager from '../../modules/TaskManager';
-<<<<<<< HEAD
 import ReactModal from 'react-modal'
 import { Button } from 'reactstrap';
-=======
->>>>>>> master
-// import './TaskForm.css'
+
 
 
 
@@ -52,16 +49,6 @@ class TaskForm extends Component {
 
         return(
             <>
-<<<<<<< HEAD
-            <ReactModal
-                isOpen={this.state.modalIsOpen}
-                onRequestClose={this.closeModal}
-                style={customStyles}
-                contentLabel="Modal"
-                ></ReactModal>
-        <div className="task_form_container">
-=======
->>>>>>> master
             <form>
                 <fieldset>
                     <div className="formgrid">
@@ -90,7 +77,7 @@ class TaskForm extends Component {
                         >Submit</Button>
                     </div>
                 </fieldset>
-            </form></div>
+            </form>
         </>
         )
     }

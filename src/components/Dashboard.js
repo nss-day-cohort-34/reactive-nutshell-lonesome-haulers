@@ -6,7 +6,6 @@ import "./Dashboard.css"
 import FriendManager from "../modules/FriendManager"
 import EventManager from "../modules/EventManager"
 import ArticleManager from "../modules/ArticleManager"
-import { defaultCipherList } from 'constants';
 
 class Dashboard extends Component {
     state = {
@@ -55,9 +54,29 @@ class Dashboard extends Component {
     })
 }
     updateArticles = () => {
+        const currentUser = JSON.parse(sessionStorage.getItem("credentials"))
         ArticleManager.getAll()
         .then(articles => {
-                const sortedArticles = articles.sort((a, b) => (a.timestamp < b.timestamp) ? 1 : -1)
+            const finalArray = []
+            articles.forEach(article => {
+                if (article.userId === currentUser.id) {
+                    finalArray.push(article)
+                }
+            });
+            this.state.friends.forEach(friendship => {
+                if (friendship.userId === currentUser.id && friendship.areFriends === true) {
+                    const friendsArticles = articles.filter(article => article.userId === friendship.otherFriendId)
+                    friendsArticles.forEach(article => {
+                        finalArray.push(article)
+                    })
+                } else if (friendship.otherFriendId === currentUser.id && friendship.areFriends === true) {
+                    const friendsArticles = articles.filter(article => article.userId === friendship.userId)
+                    friendsArticles.forEach(article => {
+                        finalArray.push(article)
+                    })
+                }
+            })
+                const sortedArticles = finalArray.sort((a, b) => (a.timestamp < b.timestamp) ? 1 : -1)
                 this.setState({
                     articles: sortedArticles
                 })

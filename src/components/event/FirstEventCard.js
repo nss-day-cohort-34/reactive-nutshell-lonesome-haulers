@@ -5,12 +5,7 @@ import './Event.css'
 
 class FirstEventCard extends Component {
 
-    // startModal = () => {
-    //     return <EditModalHelper />
-    // }
-
     render() {
-        console.log(this.props)
         const currentUser = JSON.parse(sessionStorage.getItem("credentials"))
         if (this.props.event.user.username === currentUser.username) {
             return (

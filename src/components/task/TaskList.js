@@ -19,7 +19,6 @@ class TaskList extends Component {
 username = (JSON.parse(sessionStorage.getItem("credentials")))
 
 componentDidMount(){
-    console.log("TASK LIST: ComponentDidMount");
     
     TaskManager.getAll(this.username.id)
     .then((tasks) => {
@@ -57,7 +56,6 @@ updateTask = taskObj => {
 }
 
 render(){
-    console.log("task obj", this.state.tasks);
     
     return(
     <React.Fragment>

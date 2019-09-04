@@ -3,7 +3,6 @@ import TaskManager from '../../modules/TaskManager';
 import ReactModal from 'react-modal'
 // import './TaskForm.css'
 
-const userId = parseInt(sessionStorage.getItem("userId"))
 
 const customStyles = {
     content: {

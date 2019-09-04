@@ -24,7 +24,6 @@ deleteArticle = id => {
   
 render(){
 
-    console.log(this.props.articles);
 
     return(
     <React.Fragment>

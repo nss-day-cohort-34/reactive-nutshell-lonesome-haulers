@@ -23,6 +23,8 @@ class Register extends Component {
                 window.alert("Account already exists")
                 document.querySelector("#username").value = ""
                 document.querySelector("#password").value = ""
+            } else if (this.state.username.length === 0 || this.state.password.length === 0) {
+                window.alert("Please fill out all fields")
             } else {
             UserManager.post(this.state).then((object) => {
                 sessionStorage.setItem(

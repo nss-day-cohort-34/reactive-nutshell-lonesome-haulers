@@ -36,7 +36,6 @@ class EditModalHelper extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <>
             <ReactModal

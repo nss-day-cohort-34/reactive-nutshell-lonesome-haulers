@@ -23,7 +23,7 @@ export default class ApplicationViews extends Component {
         />
         
         <Route exact path="/articles" render={props => {
-        return <ArticleList {...props} />
+        return <ArticleList {...this.props} />
         }} />
 
 
@@ -40,7 +40,7 @@ export default class ApplicationViews extends Component {
 
         <Route
           path="/events" render={props => {
-            return <EventList />
+            return <EventList {...this.props}/>
             // Remove null and return the component which will show the messages
           }}
         />

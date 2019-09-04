@@ -8,28 +8,18 @@ import "./EventList.css"
 
 class EventList extends Component {
 
-    state = {
-        events: []
-    }
-
     componentDidMount() {
         this.didMountFunction()
     }
 
     didMountFunction = () => {
-        EventManager.getAll()
-            .then((events) => {
-                const sortedEvents = events.sort((a, b) => (a.date > b.date) ? 1 : -1)
-                this.setState({
-                    events: sortedEvents
-                })
-            })
+        this.props.updateEvents()
     }
 
     deleteEvent = id => {
         EventManager.delete(id)
             .then(() => {
-                this.componentDidMount()
+                this.didMountFunction()
             })
     }
 
@@ -40,8 +30,8 @@ class EventList extends Component {
                     didMountFunction={this.didMountFunction}
                 />
                 <div id="eventsContainer">
-                    {this.state.events.map(event => {
-                        if (event === this.state.events[0]) {
+                    {this.props.events.map(event => {
+                        if (event === this.props.events[0]) {
                             return <FirstEventCard
                                 key={event.id}
                                 event={event}

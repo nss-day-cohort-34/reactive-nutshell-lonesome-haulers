@@ -7,21 +7,32 @@ import FriendManager from "../modules/FriendManager"
 import { Button } from 'reactstrap';
 import EventManager from "../modules/EventManager"
 import ArticleManager from "../modules/ArticleManager"
+import UserManager from "../modules/UserManager"
+import ColorEditorModal from "../colorEditor/ColorEditorModal"
+import { Link } from "react-router-dom";
+
 
 class Dashboard extends Component {
     state = {
         friends: [],
         events: [],
-        articles: []
+        articles: [],
+        users: []
     }
-
-
 
     updateFriends = () => {
         FriendManager.getAll()
         .then(friends => {
                 this.setState({
                     friends: friends,
+                })
+            })
+    }
+    updateUsers = () => {
+        UserManager.getAll()
+        .then(users => {
+                this.setState({
+                    users: users,
                 })
             })
     }
@@ -88,6 +99,7 @@ class Dashboard extends Component {
         this.updateFriends()
         this.updateEvents()
         this.updateArticles()
+        this.updateUsers()
     }
 
 
@@ -102,9 +114,14 @@ class Dashboard extends Component {
                 <div className="masterContainer">
                     <div className="leftContainer">
                         <div className="headerContainer">
-                        <img src={ require('../img/Nutshell_logo.png') }/>
+                        <Link to={"/"}><img src={ require('../img/Nutshell_logo.png') }/></Link>
                             {/* <h2>NutShell</h2> */}
                             <h3 className="welcome_greeting">Welcome, {username.username}!</h3>
+                            <ColorEditorModal 
+                                updateUsers={this.updateUsers}
+                                users={this.state.users}
+                                {...this.props}
+                            />
                             <Button outline color="secondary" size="sm" className="sign_out" onClick={this.logout}>Logout</Button>
                         </div>
                         <NavBar />
@@ -112,9 +129,11 @@ class Dashboard extends Component {
                             updateFriends={this.updateFriends}
                             updateEvents={this.updateEvents}
                             updateArticles={this.updateArticles}
+                            updateUsers={this.updateUsers}
                             friends={this.state.friends}
                             events={this.state.events}
                             articles={this.state.articles}
+                            users={this.state.users}
                             {...this.props} />
                     </div>
                     <div className="rightContainer">
@@ -122,6 +141,7 @@ class Dashboard extends Component {
                             <MessageList
                                 updateFriends={this.updateFriends}
                                 friends={this.state.friends}
+                                users={this.state.users}
                                 {...this.props} />
                         </div>
                     </div>

@@ -8,7 +8,8 @@ class Register extends Component {
     state = {
         username: "",
         password: "",
-        id: 0
+        id: 0,
+        color: '#000'
     }
 
     // Update state whenever an input field is edited
@@ -34,7 +35,8 @@ class Register extends Component {
                 JSON.stringify({
                     username: this.state.username,
                     password: this.state.password,
-                    id: object.id
+                    id: object.id,
+                    color: this.state.color
                 })
             )
                 this.props.history.push("/");

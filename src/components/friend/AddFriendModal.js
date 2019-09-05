@@ -1,10 +1,6 @@
 import React, { Component } from "react"
 import FriendManager from "../../modules/FriendManager"
 import { Button } from 'reactstrap';
-import { readSync } from "fs";
-
-
-
 
 class AddFriendModal extends Component {
 

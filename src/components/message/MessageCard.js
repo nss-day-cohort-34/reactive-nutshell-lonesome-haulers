@@ -3,8 +3,6 @@ import EditMessageModal from "./EditMessageModal";
 import "./Messages.css"
 import FriendManager from "../../modules/FriendManager"
 import ReactModal from 'react-modal'
-import { Button } from 'reactstrap';
-import { isUserWhitespacable } from '@babel/types';
 
 const customStyles = {
     content: {

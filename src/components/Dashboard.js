@@ -122,7 +122,7 @@ class Dashboard extends Component {
                     <div className="masterContainer">
                         <div className="leftContainer">
                             <div className="headerContainer">
-                                <Link to={"/"}><img src={require('../img/Nutshell_logo.png')} /></Link>
+                                <Link to={"/"}><img src={require('../img/Nutshell_logo.png')} alt="Nutshell logo" /></Link>
                                 <h3 className="welcome_greeting">Welcome, <p style={userColor}>{username.username}</p>!</h3>
                                 <ColorEditorModal
                                     updateUsers={this.updateUsers}

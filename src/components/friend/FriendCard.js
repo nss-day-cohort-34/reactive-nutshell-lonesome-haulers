@@ -102,7 +102,7 @@ class FriendCard extends Component {
                     return (
                         <div className="card">
                             <div className="card-content">
-                                <p style={userColor}>{this.state.usernameOfUserId} <i>Pending</i> <Button outline color="danger" size="sm" onClick={() => this.updateExistingFriendship()}>Accept</Button><button onClick={() => this.props.deleteFriend(this.props.friend.id)}>Deny</button></p>
+                                <p style={userColor}>{this.state.usernameOfUserId} <i>Pending</i> <Button outline color="dark" size="sm" onClick={() => this.updateExistingFriendship()}>Accept</Button><Button outline color="danger" size="sm" onClick={() => this.props.deleteFriend(this.props.friend.id)}>Deny</Button></p>
                             </div>
                         </div>
                     );

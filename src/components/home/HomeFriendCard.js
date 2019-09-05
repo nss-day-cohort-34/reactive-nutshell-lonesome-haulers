@@ -49,7 +49,7 @@ class HomeEventCard extends Component {
             )
         } else {
             return (
-            <h3 className="home_h3" no_h3>There are no friendships in Nutshell</h3>
+            <h3 className="home_h3">There are no friendships in Nutshell</h3>
             )
         }
     }

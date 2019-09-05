@@ -9,6 +9,10 @@ To register as a user click on the "Don't have an account" link the home screen.
 ### User Login
 To login click on the "Login" button on the home screen. The user will be required to enter their username and password. When the required information has been entered, click on the "Submit" button.
 
+### USer Logout
+
+To exit the application and return to the login screen, click the "Logout" button at the top right corner of the page.
+
 ### Home Page
 Users will see an article, event and which of your friends has the most friends on the homepage.
 

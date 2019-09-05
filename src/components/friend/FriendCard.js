@@ -29,11 +29,11 @@ class FriendCard extends Component {
             id: parseInt(this.state.friend.id),
             areFriends: true
         };
-        
+
         FriendManager.update(editedFriend)
-        .then(() => {
-            this.props.updateFriendList()
-        })
+            .then(() => {
+                this.props.updateFriendList()
+            })
     }
 
     componentDidMount() {
@@ -50,43 +50,63 @@ class FriendCard extends Component {
     }
 
     render() {
-        const username = (JSON.parse(sessionStorage.getItem("credentials")))
-        if (username.id === this.props.friend.userId) {
-            if (this.props.friend.areFriends === true) {
-                return (
-                    <div className="card">
-                        <div className="card-content">
-                            <p>{this.state.usernameOfOtherFriendId} <Button outline color="danger" onClick={() => this.props.deleteFriend(this.props.friend.id)}>Delete</Button></p>
-                        </div>
-                    </div>
-                );
-            } else {
-                return (
-                    <div className="card">
-                        <div className="card-content">
-                            <p>{this.state.usernameOfOtherFriendId} <i>Pending</i><Button outline color="danger" size="sm" onClick={() => this.props.deleteFriend(this.props.friend.id)}>Delete</Button></p>
-                        </div>
-                    </div>
-                );
-            }
-
+        if (this.state.users.length === 0) {
+            return (<></>)
         } else {
-            if (this.props.friend.areFriends === true) {
-                return (
-                    <div className="card">
-                        <div className="card-content">
-                            <p>{this.state.usernameOfUserId} <Button outline color="danger" size="sm" onClick={() => this.props.deleteFriend(this.props.friend.id)}>Delete</Button></p>
+            const username = (JSON.parse(sessionStorage.getItem("credentials")))
+            if (username.id === this.props.friend.userId) {
+                if (this.props.friend.areFriends === true) {
+                    const foundUser = this.state.users.find(user => user.id === this.state.friend.otherFriendId)
+                    const userColor = {
+                        color: foundUser.color
+                    }
+                    return (
+                        <div className="card">
+                            <div className="card-content">
+                                <p style={userColor}>{this.state.usernameOfOtherFriendId} <Button outline color="danger" onClick={() => this.props.deleteFriend(this.props.friend.id)}>Delete</Button></p>
+                            </div>
                         </div>
-                    </div>
-                );
+                    );
+                } else {
+                    const foundUser = this.state.users.find(user => user.id === this.state.friend.otherFriendId)
+                    const userColor = {
+                        color: foundUser.color
+                    }
+                    return (
+                        <div className="card">
+                            <div className="card-content">
+                                <p style={userColor}>{this.state.usernameOfOtherFriendId} <i>Pending</i><Button outline color="danger" size="sm" onClick={() => this.props.deleteFriend(this.props.friend.id)}>Delete</Button></p>
+                            </div>
+                        </div>
+                    );
+                }
+
             } else {
-                return (
-                    <div className="card">
-                        <div className="card-content">
-                            <p>{this.state.usernameOfUserId} <i>Pending</i> <Button outline color="danger" size="sm" onClick={() => this.updateExistingFriendship()}>Accept</Button><button onClick={() => this.props.deleteFriend(this.props.friend.id)}>Deny</button></p>
+                if (this.props.friend.areFriends === true) {
+                    const foundUser = this.state.users.find(user => user.id === this.state.friend.userId)
+                    const userColor = {
+                        color: foundUser.color
+                    }
+                    return (
+                        <div className="card">
+                            <div className="card-content">
+                                <p style={userColor}>{this.state.usernameOfUserId} <Button outline color="danger" size="sm" onClick={() => this.props.deleteFriend(this.props.friend.id)}>Delete</Button></p>
+                            </div>
                         </div>
-                    </div>
-                );
+                    );
+                } else {
+                    const foundUser = this.state.users.find(user => user.id === this.state.friend.userId)
+                    const userColor = {
+                        color: foundUser.color
+                    }
+                    return (
+                        <div className="card">
+                            <div className="card-content">
+                                <p style={userColor}>{this.state.usernameOfUserId} <i>Pending</i> <Button outline color="danger" size="sm" onClick={() => this.updateExistingFriendship()}>Accept</Button><button onClick={() => this.props.deleteFriend(this.props.friend.id)}>Deny</button></p>
+                            </div>
+                        </div>
+                    );
+                }
             }
         }
     }

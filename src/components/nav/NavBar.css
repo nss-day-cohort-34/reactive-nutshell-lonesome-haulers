@@ -9,6 +9,7 @@
     /* border-style: solid;
     border-size: 1px; */
     box-shadow: 2px 2px 7px rgb(206, 205, 205);
+    color: black;
 }
 
 .login_container {
@@ -95,25 +96,16 @@ a.nav-link:hover {
     margin-left: 5px;
     margin-bottom: 5px;
     border-bottom: solid 1px lightgrey;
-    background-color: whitesmoke;
-}
-
-/* .feature__name.h1_messages {
-    margin-bottom: 125px;
-} */
-
-.task_container, .task_completed {
-    /* display: flex;
-    flex-wrap: wrap; */
-
+    /* background-color: whitesmoke; */
 }
 
 .welcome_greeting {
     font-size: 1em;
     margin: auto;
+    color: black;
     /* margin-top: 20px; */
     text-align: center;
- 
+    background-color: rgb(238, 238, 241);
 }
 
 h2, h3 {
@@ -203,4 +195,8 @@ img {
 
 .welcome {
     margin-top: 15px;
+}
+
+.h1_messages {
+    color: black;
 }

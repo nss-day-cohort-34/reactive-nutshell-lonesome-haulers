@@ -9,7 +9,8 @@ class Register extends Component {
         username: "",
         password: "",
         id: 0,
-        color: '#000'
+        color: '#000',
+        backgroundColor: '#fff'
     }
 
     // Update state whenever an input field is edited
@@ -36,7 +37,8 @@ class Register extends Component {
                     username: this.state.username,
                     password: this.state.password,
                     id: object.id,
-                    color: this.state.color
+                    color: this.state.color,
+                    backgroundColor: this.state.backgroundColor
                 })
             )
                 this.props.history.push("/");
@@ -55,7 +57,7 @@ class Register extends Component {
             <div className="login_container">
                 <form onSubmit={this.handleRegister}>
                 <h2 className="welcome">Welcome To</h2>
-                <img src={ require('./Nutshell_logo.png') }/>
+                <img src={ require('./Nutshell_logo.png') } alt="Nutshell logo"/>
                 <fieldset>
                     <h3>Register</h3>
                     <div className="formgrid">

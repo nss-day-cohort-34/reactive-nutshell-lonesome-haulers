@@ -124,6 +124,7 @@ class FriendList extends Component {
                 </ReactModal>
                 <h1 className="feature__name">Friends</h1>
                 <hr></hr>
+                <div id="eventsContainer">
                 <Button outline color="secondary" size="sm" onClick={this.openModal}>Add Friend</Button>
                 {friendships.map(friend =>
                     <FriendCard
@@ -133,9 +134,11 @@ class FriendList extends Component {
                         updateFriendList={this.updateFriendList}
                         {...this.props}
                     />
+                   
                 )}
+                </div>
             </>
-        )
+        ) 
     }
 }
 

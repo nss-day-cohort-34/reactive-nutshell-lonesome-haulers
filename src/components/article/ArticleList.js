@@ -37,7 +37,7 @@ render(){
             
         </button>
         </section>
-        <div className="container-cards">
+        <div id="eventsContainer" className="container-cards ">
       {this.props.articles.map(article =>
         
         <ArticleCard

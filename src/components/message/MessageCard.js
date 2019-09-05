@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import EditMessageModal from "./EditMessageModal";
 import "./Messages.css"
 import FriendManager from "../../modules/FriendManager"
-import ReactModal from 'react-modal'
 import { Button } from 'reactstrap';
-import { isUserWhitespacable } from '@babel/types';
+
+import ReactModal from 'react-modal'
 
 const customStyles = {
     content: {

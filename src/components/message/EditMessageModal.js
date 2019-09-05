@@ -96,16 +96,16 @@ class EditMessageModal extends Component {
                             id="message"
                             value={this.state.message}
                         />
-                        <button
+                        <Button outline color="dark" size="sm"
                             type="button"
                             onClick={this.updateExistingMessage}
-                            className="btn btn-primary"
-                        >Submit</button>
-                        <button
+                            className=""
+                        >Submit</Button>
+                        <Button outline color="dark" size="sm"
                             type="button"
                             onClick={this.closeModal}
-                            className="btn btn-primary"
-                        >Cancel</button>
+                            className=""
+                        >Cancel</Button>
 
                     </ReactModal>
 

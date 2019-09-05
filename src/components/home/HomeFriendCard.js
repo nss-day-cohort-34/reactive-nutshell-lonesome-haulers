@@ -40,15 +40,15 @@ class HomeEventCard extends Component {
             return (
             <div className="card">
                 <div className="card-content">
-                    <h2>Most Popular User</h2>
-                    <h3 id={"invisibleButton--" + this.state.userId}>{this.state.popularUsername}</h3>
+                    <h2 className="home_h3">Most Popular User</h2>
+                    <h4 id={"invisibleButton--" + this.state.userId}>{this.state.popularUsername}</h4>
                     <p>{this.state.numberOfFriends} Friends</p>
                 </div>
             </div>
             )
         } else {
             return (
-            <h3>There are no friendships in Nutshell</h3>
+            <h3 className="home_h3" no_h3>There are no friendships in Nutshell</h3>
             )
         }
     }

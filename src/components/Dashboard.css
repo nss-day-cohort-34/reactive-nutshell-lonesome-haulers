@@ -3,27 +3,26 @@
     justify-content: space-evenly;
     min-height: 787px;
     background-color: rgb(238, 238, 241);
-    border-bottom: dashed 1px lightgrey;
+    border-bottom: solid 1px lightgrey;
 }
 
 .leftContainer {
     flex-basis: 60%;
-    
-    
-    
+    overflow: scroll;  
 }
 
 .rightContainer {
     flex-basis: 40%;
     /* margin-top: 124px; */
     /* background-color: rgb(238, 238, 241); */
-    border-left: dashed 1px lightgrey;
+    border-left: solid 1px #ab742c;
   
 }
 
 .headerContainer {
     display: flex;
     justify-content: space-between;
+    background-color: rgb(238, 238, 241);
 }
 
 .messageContainer {

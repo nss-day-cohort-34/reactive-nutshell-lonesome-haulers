@@ -38,8 +38,7 @@ class AddArticleModal extends Component {
                 timestamp: timestamp,
                 userId: currentUser.id
             };
-            console.log(article)
-      console.log(currentUser)
+
 
             // Create the article and redirect user to article list
             ArticleManager.post(article)

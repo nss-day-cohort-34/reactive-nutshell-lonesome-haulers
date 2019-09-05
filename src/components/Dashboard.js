@@ -109,7 +109,6 @@ class Dashboard extends Component {
         this.props.history.push("/")
     }
     render() {
-
         if (this.state.users.length === 0) {
             return (<></>)
         } else {
@@ -133,11 +132,11 @@ class Dashboard extends Component {
             }
             return (
                 <>
-                    <div className="masterContainer">
+                    <div className="masterContainer" style={changeToWhite}>
                         <div className="leftContainer" style={userBackgroundColor}>
-                            <div className="headerContainer" style={changeToWhite}>
-                                <Link to={"/"}><img src={require('../img/Nutshell_logo.png')} alt="Nutshell logo" /></Link>
-                                <h3 className="welcome_greeting" style={userBackgroundColor}>Welcome, <p style={userColor}>{username.username}</p>!</h3>
+                            <div className="headerContainer">
+                                <Link to={"/"}><img className="home_img" src={require('../img/Nutshell_logo.png')} alt="Nutshell logo" /></Link>
+                                <h3 className="welcome_greeting">Welcome, <span style={userColor}>{username.username}</span>!</h3>
                                 <ColorEditorModal
                                     updateUsers={this.updateUsers}
                                     users={this.state.users}
@@ -152,7 +151,7 @@ class Dashboard extends Component {
                             </div>
                             <NavBar />
                             <FeatureViews
-                                style={changeToWhite}
+                                // style={changeToWhite}
                                 updateFriends={this.updateFriends}
                                 updateEvents={this.updateEvents}
                                 updateArticles={this.updateArticles}

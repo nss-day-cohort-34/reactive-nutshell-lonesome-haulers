@@ -9,17 +9,18 @@
     /* border-style: solid;
     border-size: 1px; */
     box-shadow: 2px 2px 7px rgb(206, 205, 205);
+    color: black;
 }
 
 .login_container {
     text-align: center;
-    background-color: rgb(238, 238, 241);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    height: 30%;
+    background-color: rgb(255, 255, 255);
+    margin: auto;
     width: 70%;
-    margin: -15% 0 0 -33%;
+    height: 350px;
+    margin-top: 100px;
+    align-content: center;
+    padding-top: 20px;
     box-shadow: 2px 2px 16px rgb(161, 160, 160);
 };
 
@@ -32,8 +33,12 @@
 
 .firstEventName {
     color: rgb(163, 25, 25);
-    font-size: 2em;
+    font-size: 1.7em;
     font-weight: 900;
+}
+
+.no_h3 {
+    margin-left: 30px;
 }
 
 .formgrid {
@@ -72,7 +77,9 @@ a.nav-link:hover {
     text-decoration: line-through;
 }
 
-
+.invisibleButton {
+    font-weight: bold;
+}
 
 .task__name {
     font-size: 1.3em;
@@ -87,31 +94,40 @@ a.nav-link:hover {
     font-size: 1.7em;
     margin-top: 10px;
     margin-left: 5px;
-    margin-bottom: 0px;
-    border-bottom: dashed 1px lightgrey;
-    background-color: whitesmoke;
-}
-
-/* .feature__name.h1_messages {
-    margin-bottom: 125px;
-} */
-
-.task_container, .task_completed {
-    /* display: flex;
-    flex-wrap: wrap; */
-
+    margin-bottom: 5px;
+    border-bottom: solid 1px lightgrey;
+    /* background-color: whitesmoke; */
 }
 
 .welcome_greeting {
-    font-size: 1.2em;
+    font-size: 1em;
     margin: auto;
-    margin-top: 20px;
- 
+    color: black;
+    /* margin-top: 20px; */
+    text-align: center;
+    background-color: rgb(238, 238, 241);
 }
 
 h2, h3 {
     font-size: 1.5em;
     font-weight: bold;
+}
+
+.home_h3 {
+    /* text-decoration: underline; */
+    color: rgb(48, 47, 47);
+    padding-left: 5px;
+    background: linear-gradient(to right, #ab742c 0%, #ffffff 90%);
+}
+
+
+h4 {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.home_p {
+    margin-bottom: 3px;
 }
 
 .friend_submit {
@@ -126,9 +142,16 @@ h2, h3 {
 }
 
 .sign_out {
-    height: 40px;
+    height: 45px;
     margin: auto;
     margin-right: 5px;
+}
+
+.color_change_btn {
+    height: 45px;
+    margin: auto;
+    margin-right: 5px;
+    line-height: 90%;
 }
 
 .outline_button {
@@ -160,11 +183,20 @@ hr {
     margin-top: 5px;
 }
 
+.home_img {
+    width: 195px;
+    height: 51px;
+}
+
 img {
-    width: 27%;
+    width: 30%;
     height: auto;
 }
 
 .welcome {
     margin-top: 15px;
+}
+
+.h1_messages {
+    color: black;
 }

@@ -100,7 +100,7 @@ class ColorEditorModal extends Component {
 
                     </ReactModal>
 
-                    <Button outline color="dark" size="sm" onClick={this.openModal}>Edit User Color</Button>
+                    <Button outline color="dark" size="sm" className="color_change_btn" onClick={this.openModal}>User Color</Button>
                 </>
             )
         

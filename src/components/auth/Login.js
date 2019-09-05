@@ -10,7 +10,8 @@ class Login extends Component {
         username: "",
         password: "",
         id: 0,
-        color: ""
+        color: "",
+        backgroundColor: ""
     }
 
     // Update state whenever an input field is edited
@@ -30,14 +31,15 @@ class Login extends Component {
                 document.querySelector("#username").value = ""
                 document.querySelector("#password").value = ""
             } else {
-                this.setState({id: user[0].id, color: user[0].color})
+                this.setState({id: user[0].id, color: user[0].color, backgroundColor: user[0].backgroundColor})
                 sessionStorage.setItem(
                         "credentials",
                     JSON.stringify({
                         username: this.state.username,
                         password: this.state.password,
                         id: this.state.id,
-                        color: this.state.color
+                        color: this.state.color,
+                        backgroundColor: this.state.backgroundColor
                     })
                 )
                 this.props.history.push("/");

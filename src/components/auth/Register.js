@@ -9,7 +9,8 @@ class Register extends Component {
         username: "",
         password: "",
         id: 0,
-        color: '#000'
+        color: '#000',
+        backgroundColor: '#fff'
     }
 
     // Update state whenever an input field is edited
@@ -36,7 +37,8 @@ class Register extends Component {
                     username: this.state.username,
                     password: this.state.password,
                     id: object.id,
-                    color: this.state.color
+                    color: this.state.color,
+                    backgroundColor: this.state.backgroundColor
                 })
             )
                 this.props.history.push("/");

@@ -9,7 +9,9 @@ import EventManager from "../modules/EventManager"
 import ArticleManager from "../modules/ArticleManager"
 import UserManager from "../modules/UserManager"
 import ColorEditorModal from "../colorEditor/ColorEditorModal"
+import BackgroundColorEditorModal from "../colorEditor/BackgroundColorEditorModal"
 import { Link } from "react-router-dom";
+import tinycolor from 'tinycolor2'
 
 
 class Dashboard extends Component {
@@ -102,7 +104,6 @@ class Dashboard extends Component {
         this.updateUsers()
     }
 
-
     logout = () => {
         sessionStorage.clear()
         this.props.history.push("/")
@@ -113,26 +114,45 @@ class Dashboard extends Component {
             return (<></>)
         } else {
             const username = (JSON.parse(sessionStorage.getItem("credentials")))
+            const backgroundColor = tinycolor(username.backgroundColor)
+            const backgroundBrightness = backgroundColor.getBrightness()
+            let changeToWhite = {
+                "color": "#000"
+            }
             const foundUser = this.state.users.find(user => user.id === username.id)
             const userColor = {
                 color: foundUser.color
             }
+            const userBackgroundColor = {
+                "backgroundColor": foundUser.backgroundColor
+            }
+            if (backgroundBrightness < 100) {
+                changeToWhite = {
+                    "color": "#fff"
+                }
+            }
             return (
                 <>
                     <div className="masterContainer">
-                        <div className="leftContainer">
-                            <div className="headerContainer">
+                        <div className="leftContainer" style={userBackgroundColor}>
+                            <div className="headerContainer" style={changeToWhite}>
                                 <Link to={"/"}><img src={require('../img/Nutshell_logo.png')} alt="Nutshell logo" /></Link>
-                                <h3 className="welcome_greeting">Welcome, <p style={userColor}>{username.username}</p>!</h3>
+                                <h3 className="welcome_greeting" style={userBackgroundColor}>Welcome, <p style={userColor}>{username.username}</p>!</h3>
                                 <ColorEditorModal
                                     updateUsers={this.updateUsers}
                                     users={this.state.users}
                                     {...this.props}
                                 />
+                                 <BackgroundColorEditorModal 
+                                updateUsers={this.updateUsers}
+                                users={this.state.users}
+                                {...this.props}
+                            />
                                 <Button outline color="secondary" size="sm" className="sign_out" onClick={this.logout}>Logout</Button>
                             </div>
                             <NavBar />
                             <FeatureViews
+                                style={changeToWhite}
                                 updateFriends={this.updateFriends}
                                 updateEvents={this.updateEvents}
                                 updateArticles={this.updateArticles}
@@ -147,7 +167,12 @@ class Dashboard extends Component {
                             <div className="messageListContainer">
                                 <MessageList
                                     updateFriends={this.updateFriends}
+                                    updateEvents={this.updateEvents}
+                                    updateArticles={this.updateArticles}
+                                    updateUsers={this.updateUsers}
                                     friends={this.state.friends}
+                                    events={this.state.events}
+                                    articles={this.state.articles}
                                     users={this.state.users}
                                     {...this.props} />
                             </div>
@@ -156,7 +181,7 @@ class Dashboard extends Component {
                 </>
             )
         }
+
     }
 }
-
 export default Dashboard;

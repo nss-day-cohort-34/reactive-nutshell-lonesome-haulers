@@ -9,7 +9,9 @@ import EventManager from "../modules/EventManager"
 import ArticleManager from "../modules/ArticleManager"
 import UserManager from "../modules/UserManager"
 import ColorEditorModal from "../colorEditor/ColorEditorModal"
+import BackgroundColorEditorModal from "../colorEditor/BackgroundColorEditorModal"
 import { Link } from "react-router-dom";
+import tinycolor from 'tinycolor2'
 
 
 class Dashboard extends Component {
@@ -102,22 +104,42 @@ class Dashboard extends Component {
         this.updateUsers()
     }
 
-
     logout = () => {
         sessionStorage.clear()
         this.props.history.push("/")
     }
     render() {
         const username = (JSON.parse(sessionStorage.getItem("credentials")))
+        const backgroundColor = tinycolor(username.backgroundColor)
+        const backgroundBrightness = backgroundColor.getBrightness()
+        let changeToWhite = {
+            "color": "#000"
+        }
+        if (this.state.users.length !== 0) {
+            const foundUser = this.state.users.find(user => user.id === username.id)
+            const userBackgroundColor = {
+                "backgroundColor": foundUser.backgroundColor
+            } 
+            console.log("backgroundColor", userBackgroundColor)
+        if (backgroundBrightness < 100) {
+            changeToWhite = {
+                "color": "#fff"
+            }
+        }
         return (
             <>
                 <div className="masterContainer">
-                    <div className="leftContainer">
-                        <div className="headerContainer">
+                    <div className="leftContainer" style={userBackgroundColor}>
+                        <div className="headerContainer" style={changeToWhite}>
                         <Link to={"/"}><img src={ require('../img/Nutshell_logo.png') }/></Link>
                             {/* <h2>NutShell</h2> */}
-                            <h3 className="welcome_greeting">Welcome, {username.username}!</h3>
+                            <h3 className="welcome_greeting" style={userBackgroundColor}>Welcome, {username.username}!</h3>
                             <ColorEditorModal 
+                                updateUsers={this.updateUsers}
+                                users={this.state.users}
+                                {...this.props}
+                            />
+                            <BackgroundColorEditorModal 
                                 updateUsers={this.updateUsers}
                                 users={this.state.users}
                                 {...this.props}
@@ -126,6 +148,7 @@ class Dashboard extends Component {
                         </div>
                         <NavBar />
                         <FeatureViews
+                            style={changeToWhite}
                             updateFriends={this.updateFriends}
                             updateEvents={this.updateEvents}
                             updateArticles={this.updateArticles}
@@ -148,6 +171,9 @@ class Dashboard extends Component {
                 </div>
             </>
         )
+            } else {
+                return <></>
+            }
     }
 }
 

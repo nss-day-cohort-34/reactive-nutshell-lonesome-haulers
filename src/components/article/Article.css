@@ -1,0 +1,33 @@
+.arrow {
+    height: 30px;
+    width: 30px;
+    
+}
+
+.arrow-down {
+    transform: rotate(180deg)
+}
+
+.arrowButton {
+    border: none;
+    border-radius: 90%;
+    padding: 0px;
+}
+
+/* .arrowButton:hover {
+    transition: 1s;
+    background-color: blue;
+} */
+.arrowButton1 {
+    margin: -2px 8px 0px 8px;
+    position: absolute;
+    
+}
+
+.arrowButton2 {
+    margin: -2px 0px 0px 50px;
+    position: absolute;
+}
+.arrowButton3 {
+    margin: 0px 10px 0px 0px;
+}

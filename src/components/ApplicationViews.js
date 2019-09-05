@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import Login from "./auth/Login"
 import Register from "./auth/Register"
 import Dashboard from "./Dashboard"
-import ColorEditorModal from "../colorEditor/ColorEditorModal";
 
 
 

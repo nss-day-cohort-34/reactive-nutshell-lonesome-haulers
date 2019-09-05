@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import TaskManager from '../../modules/TaskManager';
-import ReactModal from 'react-modal'
 import { Button } from 'reactstrap';
 
 

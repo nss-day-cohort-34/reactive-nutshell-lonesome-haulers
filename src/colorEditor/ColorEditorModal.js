@@ -3,7 +3,6 @@ import ReactModal from 'react-modal'
 import UserManager from '../modules/UserManager'
 import { Button } from 'reactstrap';
 import { SketchPicker } from 'react-color';
-import { Route, Redirect } from "react-router-dom";
 
 
 const customStyles = {

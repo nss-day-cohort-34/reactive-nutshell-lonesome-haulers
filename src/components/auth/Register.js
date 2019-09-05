@@ -57,7 +57,7 @@ class Register extends Component {
             <div className="login_container">
                 <form onSubmit={this.handleRegister}>
                 <h2 className="welcome">Welcome To</h2>
-                <img src={ require('./Nutshell_logo.png') }/>
+                <img src={ require('./Nutshell_logo.png') } alt="Nutshell logo"/>
                 <fieldset>
                     <h3>Register</h3>
                     <div className="formgrid">

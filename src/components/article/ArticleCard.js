@@ -31,7 +31,6 @@ class ArticleCard extends Component {
       userId: this.props.article.userId,
       featuredArticleCount: featuredArticleCount
     };
-    console.log(editedArticle)
 
     ArticleManager.update(editedArticle)
       .then(() => this.props.updateArticles())
